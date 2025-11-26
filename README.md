@@ -133,5 +133,5 @@ The Flask app will automatically serve the React build from `frontend/dist`.
 
 ## 📄 License
 
-© 2024 Learn Okrika
+© 2025 Learn Okrika
 
