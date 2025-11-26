@@ -1,0 +1,4 @@
+# This file ensures the audio directory is tracked by git
+# Audio files will be stored in subdirectories like lesson1/, lesson2/, etc.
+
+

@@ -1,0 +1,93 @@
+.about {
+  padding: 80px 2rem;
+  background: white;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s ease;
+}
+
+.about-text h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.about-highlight {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+  animation: fadeInUp 0.8s ease 0.2s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-highlight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.highlight-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-highlight h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-highlight p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
