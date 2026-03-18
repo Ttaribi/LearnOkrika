@@ -19,6 +19,11 @@ const StoryDetail = () => {
   }, [storyId])
 
   useEffect(() => {
+    if (!supabase) {
+      setUserId(null)
+      return
+    }
+
     let unsubscribe = null
     supabase.auth
       .getUser()
@@ -39,6 +44,7 @@ const StoryDetail = () => {
 
   const markStoryCompleted = async () => {
     if (!userId) return
+    if (!supabase) return
     const numericStoryId = Number(storyId)
     if (Number.isNaN(numericStoryId)) return
 

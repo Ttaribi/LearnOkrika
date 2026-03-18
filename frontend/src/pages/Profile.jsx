@@ -15,6 +15,12 @@ function Profile() {
   const [completedStoryIds, setCompletedStoryIds] = useState(new Set())
 
   useEffect(() => {
+    if (!supabase) {
+      setUser(null)
+      setProgressLoading(false)
+      return
+    }
+
     let unsubscribe = null
     supabase.auth
       .getUser()
@@ -54,6 +60,7 @@ function Profile() {
 
   useEffect(() => {
     if (!user) return
+    if (!supabase) return
     setProgressLoading(true)
 
     const run = async () => {

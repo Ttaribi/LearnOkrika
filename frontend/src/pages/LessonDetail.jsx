@@ -22,6 +22,11 @@ const LessonDetail = () => {
   }, [lessonId])
 
   useEffect(() => {
+    if (!supabase) {
+      setUserId(null)
+      return
+    }
+
     let unsubscribe = null
     supabase.auth
       .getUser()
@@ -187,6 +192,7 @@ const LessonDetail = () => {
   // Save progress for logged-in users.
   useEffect(() => {
     const run = async () => {
+      if (!supabase) return
       if (!userId || !lesson) return
       if (!lessonId) return
 
