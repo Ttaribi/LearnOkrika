@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import './StoryDetail.css'
+import { supabase } from '../lib/supabaseClient'
 
 const StoryDetail = () => {
   const { storyId } = useParams()
@@ -12,11 +11,51 @@ const StoryDetail = () => {
   const [vocabulary, setVocabulary] = useState({}) // Dictionary of Okrika words/phrases to English
   const [activeTooltip, setActiveTooltip] = useState(null) // Track which word's tooltip is shown
   const [showFullTranslations, setShowFullTranslations] = useState({}) // Track which sentences show full translation
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     fetchVocabulary()
     fetchStory()
   }, [storyId])
+
+  useEffect(() => {
+    let unsubscribe = null
+    supabase.auth
+      .getUser()
+      .then(({ data: { user } }) => setUserId(user?.id ?? null))
+      .catch(() => setUserId(null))
+
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserId(session?.user?.id ?? null)
+    })
+
+    unsubscribe = data?.subscription
+    return () => {
+      try {
+        if (unsubscribe?.unsubscribe) unsubscribe.unsubscribe()
+      } catch (e) {}
+    }
+  }, [])
+
+  const markStoryCompleted = async () => {
+    if (!userId) return
+    const numericStoryId = Number(storyId)
+    if (Number.isNaN(numericStoryId)) return
+
+    try {
+      await supabase.from('story_progress').upsert(
+        {
+          user_id: userId,
+          story_id: numericStoryId,
+          completed: true,
+        },
+        { onConflict: 'user_id,story_id' }
+      )
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Failed to save story progress:', e?.message || e)
+    }
+  }
 
   // Close tooltip when clicking outside
   useEffect(() => {
@@ -134,10 +173,8 @@ const StoryDetail = () => {
       const response = await fetch(`/api/stories/${storyId}`)
       if (response.ok) {
         const data = await response.json()
-        console.log('Fetched story:', data) // Debug log
         setStory(data)
       } else {
-        console.log('Story not found, using default')
         setStory(getDefaultStory(parseInt(storyId)))
       }
     } catch (error) {
@@ -333,28 +370,20 @@ const StoryDetail = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <div className="story-loading">
-          <div className="loading-spinner"></div>
-          <p>Loading story...</p>
-        </div>
-        <Footer />
-      </>
+      <div className="story-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading story...</p>
+      </div>
     )
   }
 
   if (!story && !loading) {
     return (
-      <>
-        <Header />
-        <div className="story-error">
-          <h2>Story not found</h2>
-          <p>Story ID: {storyId}</p>
-          <button onClick={() => navigate('/stories')}>Back to Stories</button>
-        </div>
-        <Footer />
-      </>
+      <div className="story-error">
+        <h2>Story not found</h2>
+        <p>Story ID: {storyId}</p>
+        <button onClick={() => navigate('/stories')}>Back to Stories</button>
+      </div>
     )
   }
 
@@ -363,9 +392,7 @@ const StoryDetail = () => {
   }
 
   return (
-    <>
-      <Header />
-      <div className="story-detail-page" onClick={() => setActiveTooltip(null)}>
+    <div className="story-detail-page" onClick={() => setActiveTooltip(null)}>
         <div className="story-detail-container">
           <div className="story-header">
             <button className="back-button" onClick={() => navigate('/stories')}>
@@ -465,18 +492,28 @@ const StoryDetail = () => {
             <h3>✨ Story Complete!</h3>
             <p>Great job reading this story in Okrika! Keep practicing to improve your understanding.</p>
             <div className="story-actions">
-              <button className="action-button" onClick={() => navigate('/stories')}>
+              <button
+                className="action-button"
+                onClick={async () => {
+                  await markStoryCompleted()
+                  navigate('/stories')
+                }}
+              >
                 Read More Stories
               </button>
-              <button className="action-button secondary" onClick={() => navigate('/lessons')}>
+              <button
+                className="action-button secondary"
+                onClick={async () => {
+                  await markStoryCompleted()
+                  navigate('/lessons')
+                }}
+              >
                 Try Lessons
               </button>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
-    </>
   )
 }
 

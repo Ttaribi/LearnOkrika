@@ -6,7 +6,7 @@
 }
 
 .audio-play-button {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: var(--primary-color);
   border: none;
   border-radius: 50%;
   width: 28px;
@@ -15,15 +15,15 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   padding: 0;
-  box-shadow: 0 2px 6px rgba(30, 132, 73, 0.2);
+  box-shadow: 0 2px 8px rgba(29, 184, 154, 0.2);
   flex-shrink: 0;
 }
 
 .audio-play-button:hover:not(:disabled) {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(30, 132, 73, 0.3);
+  box-shadow: 0 4px 12px rgba(29, 184, 154, 0.3);
 }
 
 .audio-play-button:active:not(:disabled) {
@@ -31,17 +31,17 @@
 }
 
 .audio-play-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: wait;
 }
 
 .audio-play-button.playing {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  background: #ff6b6b;
   animation: pulse 1.5s ease-in-out infinite;
 }
 
 .audio-play-button.error {
-  background: #dc3545;
+  background: #E74C3C;
 }
 
 @keyframes pulse {
@@ -54,14 +54,14 @@
 }
 
 .audio-icon {
-  color: white;
+  color: #fff;
   font-size: 10px;
   line-height: 1;
   display: inline-block;
 }
 
 .audio-icon.play {
-  margin-left: 1px; /* Slight offset to center play triangle */
+  margin-left: 1px;
 }
 
 .audio-icon.pause {
@@ -75,6 +75,7 @@
 
 .audio-icon.error {
   font-size: 11px;
+  color: #ffffff;
 }
 
 @keyframes spin {
@@ -88,11 +89,10 @@
 
 .audio-error-message {
   font-size: 0.75rem;
-  color: #dc3545;
+  color: #E74C3C;
   font-style: italic;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .audio-play-button {
     width: 26px;
@@ -107,4 +107,3 @@
     margin-left: 0.5px;
   }
 }
-

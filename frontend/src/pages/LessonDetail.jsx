@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import AudioPlayer from '../components/AudioPlayer'
+import { supabase } from '../lib/supabaseClient'
 import './LessonDetail.css'
 
 const LessonDetail = () => {
@@ -15,10 +14,31 @@ const LessonDetail = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0) // For quiz
   const [selectedAnswer, setSelectedAnswer] = useState(null) // For quiz
   const [showAnswer, setShowAnswer] = useState(false) // For quiz
+  const [expandedConjugations, setExpandedConjugations] = useState({}) // Track expanded conjugations: {itemIndex-tense: true/false}
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     fetchLesson()
   }, [lessonId])
+
+  useEffect(() => {
+    let unsubscribe = null
+    supabase.auth
+      .getUser()
+      .then(({ data: { user } }) => setUserId(user?.id ?? null))
+      .catch(() => setUserId(null))
+
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserId(session?.user?.id ?? null)
+    })
+
+    unsubscribe = data?.subscription
+    return () => {
+      try {
+        if (unsubscribe?.unsubscribe) unsubscribe.unsubscribe()
+      } catch (e) {}
+    }
+  }, [])
 
   useEffect(() => {
     // Reset quiz state when changing parts
@@ -164,36 +184,71 @@ const LessonDetail = () => {
     }
   }
 
+  // Save progress for logged-in users.
+  useEffect(() => {
+    const run = async () => {
+      if (!userId || !lesson) return
+      if (!lessonId) return
+
+      const numericLessonId = Number(lessonId)
+      if (Number.isNaN(numericLessonId)) return
+
+      try {
+        if (hasParts) {
+          const lastPart = currentPart
+          const completed = parts.length > 0 && currentPart === parts.length - 1
+          await supabase.from('lesson_progress').upsert(
+            {
+              user_id: userId,
+              lesson_id: numericLessonId,
+              last_part: lastPart,
+              completed,
+            },
+            { onConflict: 'user_id,lesson_id' }
+          )
+        } else {
+          const lastPart = currentSection
+          const completed = sections.length > 0 && currentSection === sections.length - 1
+          await supabase.from('lesson_progress').upsert(
+            {
+              user_id: userId,
+              lesson_id: numericLessonId,
+              last_part: lastPart,
+              completed,
+            },
+            { onConflict: 'user_id,lesson_id' }
+          )
+        }
+      } catch (e) {
+        // If tables/policies aren't ready yet, don't crash the UI.
+        // eslint-disable-next-line no-console
+        console.error('Failed to save lesson progress:', e?.message || e)
+      }
+    }
+
+    run()
+  }, [userId, lessonId, lesson, hasParts, currentPart, currentSection, parts.length, sections.length])
+
   if (loading) {
     return (
-      <>
-        <Header />
-        <div className="lesson-loading">
-          <div className="loading-spinner"></div>
-          <p>Loading lesson...</p>
-        </div>
-        <Footer />
-      </>
+      <div className="lesson-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading lesson...</p>
+      </div>
     )
   }
 
   if (!lesson) {
     return (
-      <>
-        <Header />
-        <div className="lesson-error">
-          <h2>Lesson not found</h2>
-          <button onClick={() => navigate('/lessons')}>Back to Lessons</button>
-        </div>
-        <Footer />
-      </>
+      <div className="lesson-error">
+        <h2>Lesson not found</h2>
+        <button onClick={() => navigate('/lessons')}>Back to Lessons</button>
+      </div>
     )
   }
 
   return (
-    <>
-      <Header />
-      <div className="lesson-detail-page">
+    <div className="lesson-detail-page">
         <div className="lesson-detail-container">
           <div className="lesson-header">
             <button className="back-button" onClick={() => navigate('/lessons')}>
@@ -249,7 +304,17 @@ const LessonDetail = () => {
           )}
 
           <div className="lesson-content">
-            {/* Part 1: Vocabulary */}
+            {/* Text Part */}
+            {hasParts && currentPartData?.type === 'text' && (
+              <div className="lesson-section">
+                <h2>{currentPartData.title}</h2>
+                <div className="text-content">
+                  <p style={{ whiteSpace: 'pre-line' }}>{currentPartData.content}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Vocabulary Part */}
             {hasParts && currentPartData?.type === 'vocabulary' && (
               <div className="lesson-section">
                 <h2>{currentPartData.title}</h2>
@@ -300,6 +365,153 @@ const LessonDetail = () => {
                               <strong>Translation:</strong> {item.exampleTranslation}
                             </div>
                           )}
+                        </div>
+                      )}
+                      {item.conjugations && (
+                        <div className="vocab-conjugations">
+                          <h4 className="conjugations-title">Conjugations:</h4>
+                          <div className="conjugations-dropdown">
+                            {item.conjugations.presentContinuous?.example && (
+                              <div className="conjugation-dropdown-item">
+                                <button 
+                                  className="conjugation-dropdown-header"
+                                  onClick={() => {
+                                    const key = `${index}-presentContinuous`
+                                    setExpandedConjugations(prev => ({
+                                      ...prev,
+                                      [key]: !prev[key]
+                                    }))
+                                  }}
+                                >
+                                  <span className="conjugation-label">Present Continuous:</span>
+                                  <span className="dropdown-arrow">
+                                    {expandedConjugations[`${index}-presentContinuous`] ? '▼' : '▶'}
+                                  </span>
+                                </button>
+                                {expandedConjugations[`${index}-presentContinuous`] && (
+                                  <div className="conjugation-dropdown-content">
+                                    <div className="conjugation-example">
+                                      <strong>Example:</strong> {item.conjugations.presentContinuous.example}
+                                      {item.conjugations.presentContinuous.audioUrl && (
+                                        <AudioPlayer 
+                                          audioUrl={item.conjugations.presentContinuous.audioUrl} 
+                                          label={`Play pronunciation of example: "${item.conjugations.presentContinuous.example}"`}
+                                        />
+                                      )}
+                                      {item.conjugations.presentContinuous.exampleTranslation && (
+                                        <span className="conjugation-example-translation"> - {item.conjugations.presentContinuous.exampleTranslation}</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            {item.conjugations.pastTense?.example && (
+                              <div className="conjugation-dropdown-item">
+                                <button 
+                                  className="conjugation-dropdown-header"
+                                  onClick={() => {
+                                    const key = `${index}-pastTense`
+                                    setExpandedConjugations(prev => ({
+                                      ...prev,
+                                      [key]: !prev[key]
+                                    }))
+                                  }}
+                                >
+                                  <span className="conjugation-label">Past Tense:</span>
+                                  <span className="dropdown-arrow">
+                                    {expandedConjugations[`${index}-pastTense`] ? '▼' : '▶'}
+                                  </span>
+                                </button>
+                                {expandedConjugations[`${index}-pastTense`] && (
+                                  <div className="conjugation-dropdown-content">
+                                    <div className="conjugation-example">
+                                      <strong>Example:</strong> {item.conjugations.pastTense.example}
+                                      {item.conjugations.pastTense.audioUrl && (
+                                        <AudioPlayer 
+                                          audioUrl={item.conjugations.pastTense.audioUrl} 
+                                          label={`Play pronunciation of example: "${item.conjugations.pastTense.example}"`}
+                                        />
+                                      )}
+                                      {item.conjugations.pastTense.exampleTranslation && (
+                                        <span className="conjugation-example-translation"> - {item.conjugations.pastTense.exampleTranslation}</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            {item.conjugations.pastParticiple?.example && (
+                              <div className="conjugation-dropdown-item">
+                                <button 
+                                  className="conjugation-dropdown-header"
+                                  onClick={() => {
+                                    const key = `${index}-pastParticiple`
+                                    setExpandedConjugations(prev => ({
+                                      ...prev,
+                                      [key]: !prev[key]
+                                    }))
+                                  }}
+                                >
+                                  <span className="conjugation-label">Past Participle:</span>
+                                  <span className="dropdown-arrow">
+                                    {expandedConjugations[`${index}-pastParticiple`] ? '▼' : '▶'}
+                                  </span>
+                                </button>
+                                {expandedConjugations[`${index}-pastParticiple`] && (
+                                  <div className="conjugation-dropdown-content">
+                                    <div className="conjugation-example">
+                                      <strong>Example:</strong> {item.conjugations.pastParticiple.example}
+                                      {item.conjugations.pastParticiple.audioUrl && (
+                                        <AudioPlayer 
+                                          audioUrl={item.conjugations.pastParticiple.audioUrl} 
+                                          label={`Play pronunciation of example: "${item.conjugations.pastParticiple.example}"`}
+                                        />
+                                      )}
+                                      {item.conjugations.pastParticiple.exampleTranslation && (
+                                        <span className="conjugation-example-translation"> - {item.conjugations.pastParticiple.exampleTranslation}</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            {item.conjugations.future?.example && (
+                              <div className="conjugation-dropdown-item">
+                                <button 
+                                  className="conjugation-dropdown-header"
+                                  onClick={() => {
+                                    const key = `${index}-future`
+                                    setExpandedConjugations(prev => ({
+                                      ...prev,
+                                      [key]: !prev[key]
+                                    }))
+                                  }}
+                                >
+                                  <span className="conjugation-label">Future:</span>
+                                  <span className="dropdown-arrow">
+                                    {expandedConjugations[`${index}-future`] ? '▼' : '▶'}
+                                  </span>
+                                </button>
+                                {expandedConjugations[`${index}-future`] && (
+                                  <div className="conjugation-dropdown-content">
+                                    <div className="conjugation-example">
+                                      <strong>Example:</strong> {item.conjugations.future.example}
+                                      {item.conjugations.future.audioUrl && (
+                                        <AudioPlayer 
+                                          audioUrl={item.conjugations.future.audioUrl} 
+                                          label={`Play pronunciation of example: "${item.conjugations.future.example}"`}
+                                        />
+                                      )}
+                                      {item.conjugations.future.exampleTranslation && (
+                                        <span className="conjugation-example-translation"> - {item.conjugations.future.exampleTranslation}</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       )}
                     </div>
@@ -524,8 +736,6 @@ const LessonDetail = () => {
           )}
         </div>
       </div>
-      <Footer />
-    </>
   )
 }
 

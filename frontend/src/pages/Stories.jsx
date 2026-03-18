@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import './Stories.css'
+
+const cardColors = ['#E8567F', '#6C63FF', '#1DB89A', '#3B82F6', '#E5A100', '#A855F7']
 
 const Stories = () => {
   const [stories, setStories] = useState([])
@@ -20,7 +20,6 @@ const Stories = () => {
       setStories(data.stories || [])
     } catch (error) {
       console.error('Error fetching stories:', error)
-      // Fallback to default stories if API fails
       setStories([
         {
           id: 0,
@@ -42,58 +41,53 @@ const Stories = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <div className="stories-loading">
-          <div className="loading-spinner"></div>
-          <p>Loading stories...</p>
-        </div>
-        <Footer />
-      </>
+      <div className="stories-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading stories...</p>
+      </div>
     )
   }
 
   return (
-    <>
-      <Header />
-      <div className="stories-page">
-        <div className="stories-container">
-          <div className="stories-header">
-            <h1>Read Stories in Okrika</h1>
-            <p>Explore conversational Okrika through engaging stories and dialogues</p>
-          </div>
+    <div className="stories-page">
+      <div className="stories-container">
+        <div className="stories-header">
+          <h1>Stories in Okrika</h1>
+          <p>Explore conversational Okrika through engaging stories and dialogues</p>
+        </div>
 
-          <div className="stories-grid">
-            {stories.map((story) => (
-              <div 
-                key={story.id} 
+        <div className="stories-grid">
+          {stories.map((story, index) => {
+            const accent = cardColors[index % cardColors.length]
+            return (
+              <div
+                key={story.id}
                 className="story-card"
+                style={{ borderTop: `3px solid ${accent}` }}
                 onClick={() => handleStoryClick(story.id)}
               >
                 <div className="story-card-header">
-                  <span className="story-level">{story.level}</span>
-                  <span className="story-reading-time">📖 {story.readingTime}</span>
+                  <span className={`story-level ${story.level}`}>{story.level}</span>
+                  <span className="story-reading-time">{story.readingTime}</span>
                 </div>
                 <h3>{story.title}</h3>
                 <p>{story.description}</p>
-                <button className="story-button">
+                <button className="story-button" style={{ borderColor: accent, color: accent }}>
                   Read Story →
                 </button>
               </div>
-            ))}
-          </div>
-
-          {stories.length === 0 && (
-            <div className="no-stories">
-              <p>No stories available yet. Check back soon!</p>
-            </div>
-          )}
+            )
+          })}
         </div>
+
+        {stories.length === 0 && (
+          <div className="no-stories">
+            <p>No stories available yet. Check back soon!</p>
+          </div>
+        )}
       </div>
-      <Footer />
-    </>
+    </div>
   )
 }
 
 export default Stories
-

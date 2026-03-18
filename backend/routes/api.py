@@ -51,11 +51,11 @@ def get_lessons():
         },
         {
             'id': 3,
-            'title': 'Common Phrases',
+            'title': 'Common Verbs',
             'level': 'beginner',
-            'description': 'Master everyday phrases used in Okrika conversations',
-            'duration': '20 minutes',
-            'category': 'phrases'
+            'description': 'Learn essential verbs and their conjugations in Okrika',
+            'duration': '25 minutes',
+            'category': 'grammar'
         },
         {
             'id': 4,
@@ -71,6 +71,14 @@ def get_lessons():
             'level': 'intermediate',
             'description': 'Essential phrases and vocabulary for food and dining',
             'duration': '30 minutes',
+            'category': 'vocabulary'
+        },
+        {
+            'id': 6,
+            'title': 'Everyday Words and Tones',
+            'level': 'beginner',
+            'description': 'Learn common words from Okrika orthography and how tone changes meaning.',
+            'duration': '20 minutes',
             'category': 'vocabulary'
         }
     ]
@@ -125,6 +133,7 @@ def get_lesson(lesson_id):
                 ]
             }
         },
+        
         1: {
             'id': 1,
             'title': 'Lesson 1: Basic Greetings',
@@ -446,8 +455,8 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Ì bìmé púrú. Ñdè íyá fúró sìmè òkù?',
-                                        'english': 'I am fine too. How is your family?'
+                                        'okrika': 'Ì bìmé. Ñdè íyá fúró sìmè òkù?',
+                                        'english': 'I am fine. How is your family?'
                                     },
                                     {
                                         'speaker': 'Person B',
@@ -763,8 +772,8 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Mẹ́ ḅírí púrú',
-                                        'english': 'I am fine too'
+                                        'okrika': 'Mẹ́ ḅírí',
+                                        'english': 'I am fine'
                                     }
                                 ]
                             },
@@ -825,123 +834,415 @@ def get_lesson(lesson_id):
         },
         3: {
             'id': 3,
-            'title': 'Common Phrases',
+            'title': 'Common Verbs',
             'level': 'beginner',
-            'description': 'Master everyday phrases used in Okrika conversations',
-            'duration': '20 minutes',
+            'description': 'Learn everyday action verbs in Okrika: jump, run, sit, walk, read, write, listen, speak and more.',
+            'duration': '25 minutes',
             'content': {
                 'parts': [
                     {
                         'part': 1,
-                        'title': 'Learn New Words',
-                        'type': 'vocabulary',
-                        'items': [
-                            {
-                                'okrika': 'Mìébákà',
-                                'english': 'Thank you',
-                                'example': 'Mìébákà púrú',
-                                'exampleTranslation': 'Thank you very much'
-                            },
-                            {
-                                'okrika': 'Kí ḅírí ḅí?',
-                                'english': 'How are you?',
-                                'example': 'Kí ḅírí ḅí gbá?',
-                                'exampleTranslation': 'How are you today?'
-                            },
-                            {
-                                'okrika': 'Mẹ́ ḅírí',
-                                'english': 'I am fine',
-                                'example': 'Mẹ́ ḅírí, ḅá ḅí',
-                                'exampleTranslation': 'I am fine, thank you'
-                            },
-                            {
-                                'okrika': 'ḅó ḅírí gbá',
-                                'english': 'Have a nice day',
-                                'example': 'ḅó ḅírí gbá!',
-                                'exampleTranslation': 'Have a nice day!'
-                            },
-                            {
-                                'okrika': 'Í ḅòsà',
-                                'english': 'Welcome',
-                                'example': 'Í ḅòsà nyingima',
-                                'exampleTranslation': 'Welcome mother'
-                            }
-                        ]
+                        'title': 'Understanding Tenses',
+                        'type': 'text',
+                        'content': 'In Okrika, verbs are conjugated to express different time references by adding specific tense markers after the verb. Understanding these tense markers will help you communicate about actions in the past, present, and future.\n\nHere are the tense markers used in Okrika:\n\n• Present Continuous: Add "àbè" after the verb (e.g., "bô àbè" = coming/am coming)\n• Past Tense: Add "mè" after the verb (e.g., "bô mè" = came)\n• Past Participle: Add "sàm" after the verb (e.g., "bô sàm" = have come/have been)\n• Future: Add "bìà" after the verb (e.g., "bô bìà" = will come)\n\nThe verb itself remains the same; by adding these markers after it, you change the tense. For example, the verb "bô" (come) becomes:\n\n• "À bô àbè" = I am coming (Present Continuous)\n• "À bô mè" = I came (Past Tense)\n• "Ó bô sàm" = He has come (Past Participle)\n• "Íní bô bìà" = They will come (Future)\n\nClick on each tense in the conjugations section below to see more examples of how these tense markers are used with different verbs.'
                     },
                     {
                         'part': 2,
-                        'title': 'Test Your Knowledge',
-                        'type': 'quiz',
-                        'questions': [
+                        'title': 'Learn Common Verbs (with conjugations)',
+                        'type': 'vocabulary',
+                        'items': [
                             {
-                                'id': 1,
-                                'question': 'What does "Mìébákà" mean?',
-                                'correctAnswer': 'Thank you',
-                                'options': ['Thank you', 'Good morning', 'How are you?', 'Welcome']
+                                'okrika': 'bô',
+                                'english': 'come',
+                                'example': 'Daniel, bô',
+                                'exampleTranslation': 'Daniel, come',
+                                'audioUrl': '/audio/lesson3/wono.m4a',
+                                'exampleAudioUrl': '/audio/lesson3/wono-exe.m4a',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'À bô àbè',
+                                        'exampleTranslation': 'I am coming',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À bô mè',
+                                        'exampleTranslation': 'I came',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó bô sàm',
+                                        'exampleTranslation': 'He have come',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní bô bìà',
+                                        'exampleTranslation': 'They will come',
+                                        'audioUrl': ''
+                                    }
+                                }
                             },
                             {
-                                'id': 2,
-                                'question': 'What does "Kí ḅírí ḅí?" mean?',
-                                'correctAnswer': 'How are you?',
-                                'options': ['I am fine', 'How are you?', 'Thank you', 'Good night']
-                            },
-                            {
-                                'id': 3,
-                                'question': 'What does "Mẹ́ ḅírí" mean?',
-                                'correctAnswer': 'I am fine',
-                                'options': ['How are you?', 'I am fine', 'Thank you', 'Welcome']
-                            },
-                            {
-                                'id': 4,
-                                'question': 'What does "ḅó ḅírí gbá" mean?',
-                                'correctAnswer': 'Have a nice day',
-                                'options': ['Good morning', 'How are you?', 'Have a nice day', 'Thank you']
-                            },
-                            {
-                                'id': 5,
-                                'question': 'What does "Í ḅòsà" mean?',
-                                'correctAnswer': 'Welcome',
-                                'options': ['Thank you', 'Welcome', 'I am fine', 'Good evening']
+                                'okrika': 'múñ',
+                                'english': 'go',
+                                'example': 'Múñ fiye ma oki bo',
+                                'exampleTranslation': 'Go and bring the food',
+                                'audioUrl': '/audio/lesson3/wono.m4a',
+                                'exampleAudioUrl': '/audio/lesson3/wono-exe.m4a',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'Í múñ àbè',
+                                        'exampleTranslation': 'I am coming',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À múñ mè',
+                                        'exampleTranslation': 'I came',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó múñ sàm',
+                                        'exampleTranslation': 'He have come',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní múñ bìà',
+                                        'exampleTranslation': 'They will come',
+                                        'audioUrl': ''
+                                    }
+                                }
                             }
                         ]
                     },
                     {
                         'part': 3,
-                        'title': 'Dialogue Examples',
+                        'title': 'Movement and posture',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'fúkù',
+                                'english': 'jump',
+                                'singular': 'fúkù',
+                                'example': 'Ị́ fúkù',
+                                'exampleTranslation': 'You jump'
+                            },
+                            {
+                                'okrika': 'màñgị̀',
+                                'english': 'run',
+                                'singular': 'màñgị̀',
+                                'example': 'Ọ màñgị̀',
+                                'exampleTranslation': 'He/she runs'
+                            },
+                            {
+                                'okrika': 'símè',
+                                'english': 'sit',
+                                'singular': 'símè',
+                                'example': 'Ị́ símè',
+                                'exampleTranslation': 'You sit'
+                            },
+                            {
+                                'okrika': 'kpọ́njị̀ símè',
+                                'english': 'sit down',
+                                'singular': 'kpọ́njị̀ símè',
+                                'example': 'Kpọ́njị̀ símè',
+                                'exampleTranslation': 'Sit down'
+                            },
+                            {
+                                'okrika': 'sòmbī',
+                                'english': 'squat',
+                                'singular': 'sòmbī',
+                                'example': 'Ọ sòmbī',
+                                'exampleTranslation': 'He/she squats'
+                            },
+                            {
+                                'okrika': 'wẹ́́ñgị́',
+                                'english': 'walk',
+                                'singular': 'wẹ́́ñgị́',
+                                'example': 'À wẹ́́ñgị́',
+                                'exampleTranslation': 'I walk'
+                            },
+                            {
+                                'okrika': 'bẹ́ é wẹ́ñgị́',
+                                'english': 'walk fast',
+                                'singular': 'bẹ́ é wẹ́ñgị́',
+                                'example': 'Bẹ́ é wẹ́ñgị́',
+                                'exampleTranslation': 'Walk fast'
+                            },
+                            {
+                                'okrika': 'tànjị̀',
+                                'english': 'climb',
+                                'singular': 'tànjị̀',
+                                'example': 'Ọ tànjị̀',
+                                'exampleTranslation': 'He/she climbs'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 4,
+                        'title': 'Daily actions',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'yé fị̀',
+                                'english': 'eat',
+                                'singular': 'yé fị̀',
+                                'example': 'Yé fị̀ / fị́yé fị̀',
+                                'exampleTranslation': 'Eat'
+                            },
+                            {
+                                'okrika': 'ị́ñọ́ sárá',
+                                'english': 'rest',
+                                'singular': 'ị́ñọ́ sárá',
+                                'example': 'Ị́ñọ́ sárá',
+                                'exampleTranslation': 'Rest'
+                            },
+                            {
+                                'okrika': 'ànwúà',
+                                'english': 'yawn',
+                                'singular': 'ànwúà',
+                                'example': 'Ọ ànwúà',
+                                'exampleTranslation': 'He/she yawns'
+                            },
+                            {
+                                'okrika': 'góō',
+                                'english': 'read',
+                                'singular': 'góō',
+                                'example': 'Ị́ góō',
+                                'exampleTranslation': 'You read'
+                            },
+                            {
+                                'okrika': 'kị̀ẹ́ñ',
+                                'english': 'count',
+                                'singular': 'kị̀ẹ́ñ',
+                                'example': 'À kị̀ẹ́ñ',
+                                'exampleTranslation': 'I count'
+                            },
+                            {
+                                'okrika': 'gị̀ẹ́ñ',
+                                'english': 'write',
+                                'singular': 'gị̀ẹ́ñ',
+                                'example': 'Ọ gị̀ẹ́ñ',
+                                'exampleTranslation': 'He/she writes'
+                            },
+                            {
+                                'okrika': 'pókì',
+                                'english': 'listen',
+                                'singular': 'pókì',
+                                'example': 'Ị́ pókì',
+                                'exampleTranslation': 'You listen'
+                            },
+                            {
+                                'okrika': 'ọ̣́kwẹ́ị́ñ',
+                                'english': 'speak',
+                                'singular': 'ọ̣́kwẹ́ị́ñ',
+                                'example': 'Ọ̣́kwẹ́ị́ñ Kịrịkị',
+                                'exampleTranslation': 'Speak Okrika'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 5,
+                        'title': 'Other actions',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'ọ́sụ́ñ',
+                                'english': 'vomit',
+                                'singular': 'ọ́sụ́ñ',
+                                'example': 'Ọ́sụ́ñ / ọ̀kọ̀',
+                                'exampleTranslation': 'Vomit'
+                            },
+                            {
+                                'okrika': 'ọ́lọ́',
+                                'english': 'cough',
+                                'singular': 'ọ́lọ́',
+                                'example': 'Ọ ọ́lọ́',
+                                'exampleTranslation': 'He/she coughs'
+                            },
+                            {
+                                'okrika': 'ḅị́ẹ́',
+                                'english': 'defecate',
+                                'singular': 'ḅị́ẹ́',
+                                'example': 'Ḅị́ẹ́',
+                                'exampleTranslation': 'Defecate'
+                            },
+                            {
+                                'okrika': 'sán̄',
+                                'english': 'urinate',
+                                'singular': 'sán̄',
+                                'example': 'Ọ sán̄',
+                                'exampleTranslation': 'He/she urinates'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 6,
+                        'title': 'Test your knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "fúkù" mean?',
+                                'correctAnswer': 'jump',
+                                'options': ['jump', 'run', 'sit', 'walk']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "màñgị̀" mean?',
+                                'correctAnswer': 'run',
+                                'options': ['run', 'jump', 'walk', 'climb']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "símè" mean?',
+                                'correctAnswer': 'sit',
+                                'options': ['sit', 'sit down', 'squat', 'rest']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "kpọ́njị̀ símè" mean?',
+                                'correctAnswer': 'sit down',
+                                'options': ['sit', 'sit down', 'squat', 'rest']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "sòmbī" mean?',
+                                'correctAnswer': 'squat',
+                                'options': ['squat', 'sit', 'run', 'rest']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "ànwúà" mean?',
+                                'correctAnswer': 'yawn',
+                                'options': ['yawn', 'rest', 'eat', 'cough']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "ị́ñọ́ sárá" mean?',
+                                'correctAnswer': 'rest',
+                                'options': ['rest', 'yawn', 'sit', 'walk']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "wẹ́́ñgị́" mean?',
+                                'correctAnswer': 'walk',
+                                'options': ['walk', 'run', 'climb', 'sit']
+                            },
+                            {
+                                'id': 9,
+                                'question': 'What does "bẹ́ é wẹ́ñgị́" mean?',
+                                'correctAnswer': 'walk fast',
+                                'options': ['walk fast', 'walk', 'run', 'climb']
+                            },
+                            {
+                                'id': 10,
+                                'question': 'What does "yé fị̀" mean?',
+                                'correctAnswer': 'eat',
+                                'options': ['eat', 'yawn', 'read', 'write']
+                            },
+                            {
+                                'id': 11,
+                                'question': 'What does "ọ́sụ́ñ" mean?',
+                                'correctAnswer': 'vomit',
+                                'options': ['vomit', 'cough', 'urinate', 'eat']
+                            },
+                            {
+                                'id': 12,
+                                'question': 'What does "ọ́lọ́" mean?',
+                                'correctAnswer': 'cough',
+                                'options': ['cough', 'vomit', 'defecate', 'yawn']
+                            },
+                            {
+                                'id': 13,
+                                'question': 'What does "ḅị́ẹ́" mean?',
+                                'correctAnswer': 'defecate',
+                                'options': ['defecate', 'urinate', 'vomit', 'cough']
+                            },
+                            {
+                                'id': 14,
+                                'question': 'What does "sán̄" mean?',
+                                'correctAnswer': 'urinate',
+                                'options': ['urinate', 'defecate', 'yawn', 'climb']
+                            },
+                            {
+                                'id': 15,
+                                'question': 'What does "tànjị̀" mean?',
+                                'correctAnswer': 'climb',
+                                'options': ['climb', 'sit', 'run', 'walk']
+                            },
+                            {
+                                'id': 16,
+                                'question': 'What does "góō" mean?',
+                                'correctAnswer': 'read',
+                                'options': ['read', 'write', 'count', 'listen']
+                            },
+                            {
+                                'id': 17,
+                                'question': 'What does "kị̀ẹ́ñ" mean?',
+                                'correctAnswer': 'count',
+                                'options': ['count', 'read', 'write', 'speak']
+                            },
+                            {
+                                'id': 18,
+                                'question': 'What does "gị̀ẹ́ñ" mean?',
+                                'correctAnswer': 'write',
+                                'options': ['write', 'count', 'read', 'speak']
+                            },
+                            {
+                                'id': 19,
+                                'question': 'What does "pókì" mean?',
+                                'correctAnswer': 'listen',
+                                'options': ['listen', 'speak', 'read', 'write']
+                            },
+                            {
+                                'id': 20,
+                                'question': 'What does "ọ̣́kwẹ́ị́ñ" mean?',
+                                'correctAnswer': 'speak',
+                                'options': ['speak', 'listen', 'eat', 'read']
+                            }
+                        ]
+                    },
+                    {
+                        'part': 7,
+                        'title': 'Short dialogue',
                         'type': 'dialogue',
                         'dialogues': [
                             {
-                                'title': 'Greeting Conversation',
+                                'title': 'At home',
                                 'exchanges': [
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Íḅásà, kí ḅírí ḅí?',
-                                        'english': 'Good morning, how are you?'
+                                        'okrika': 'Kpọ́njị̀ símè.',
+                                        'english': 'Sit down.'
                                     },
                                     {
                                         'speaker': 'Person B',
-                                        'okrika': 'Mẹ́ ḅírí, mìébákà. Kí ḅírí ḅí wẹ?',
-                                        'english': 'I am fine, thank you. How are you?'
+                                        'okrika': 'Mìébákà. Ị́ góō?',
+                                        'english': 'Thank you. Are you reading?'
                                     },
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Mẹ́ ḅírí púrú. ḅó ḅírí gbá!',
-                                        'english': 'I am fine too. Have a nice day!'
+                                        'okrika': 'Ììn. Ị́ pókì.',
+                                        'english': 'Yes. You listen.'
                                     }
                                 ]
                             },
                             {
-                                'title': 'Welcoming Someone',
+                                'title': 'Going out',
                                 'exchanges': [
                                     {
-                                        'speaker': 'Host',
-                                        'okrika': 'Í ḅòsà! Í ḅòsà nyingima!',
-                                        'english': 'Welcome! Welcome mother!'
+                                        'speaker': 'Person A',
+                                        'okrika': 'Bẹ́ é wẹ́ñgị́.',
+                                        'english': 'Walk fast.'
                                     },
                                     {
-                                        'speaker': 'Guest',
-                                        'okrika': 'Mìébákà púrú!',
-                                        'english': 'Thank you very much!'
+                                        'speaker': 'Person B',
+                                        'okrika': 'Ììn.',
+                                        'english': 'Yes.'
+                                    },
+                                    {
+                                        'speaker': 'Person A',
+                                        'okrika': 'Ị́ñọ́ sárá.',
+                                        'english': 'Rest.'
                                     }
                                 ]
                             }
@@ -1008,6 +1309,558 @@ def get_lesson(lesson_id):
                     }
                 ]
             }
+        },
+        5: {
+            'id': 5,
+            'title': 'Food and Dining',
+            'level': 'intermediate',
+            'description': 'Learn cooking methods, food prep, and eating phrases in Okrika.',
+            'duration': '30 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'Food preparation vocabulary',
+                        'type': 'text',
+                        'content': 'This lesson covers everyday words for cooking, preparing food, and eating in Okrika (Kịrịkị). You will learn cooking methods like steam, boil, roast, and smoke, plus actions like chop, peel, and scoop. Focus on the phrases you would use in a kitchen or at the table.'
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Cooking methods',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'chụ̀ọ̀',
+                                'english': 'cook',
+                                'singular': 'chụ̀ọ̀',
+                                'example': 'À fị̀yẹ̀ chụ̀ọ̀ ḅimẹ̀',
+                                'exampleTranslation': 'I want to cook'
+                            },
+                            {
+                                'okrika': 'sù',
+                                'english': 'steam',
+                                'singular': 'sù',
+                                'example': 'Tátárị́ ị̀njị mị̀ sù',
+                                'exampleTranslation': 'First, steam the fish'
+                            },
+                            {
+                                'okrika': 'ḍàrị̀',
+                                'english': 'boil',
+                                'singular': 'ḍàrị̀',
+                                'example': 'Mẹ̀ngị̀ mị̀ ḍárị́ sà?',
+                                'exampleTranslation': 'Has the water boiled?'
+                            },
+                            {
+                                'okrika': 'fọ̀ị̀',
+                                'english': 'roast',
+                                'singular': 'fọ̀ị̀',
+                                'example': 'Ọ̀ fọ̀ị̀ mbị̀nà fẹ̀ ḅò mẹ̀',
+                                'exampleTranslation': 'He bought roasted plantain'
+                            },
+                            {
+                                'okrika': 'ị́rụ̀ọ̀',
+                                'english': 'smoke',
+                                'singular': 'ị́rụ̀ọ̀',
+                                'example': 'Ị̀rụ̀ọ̀ sàmị̀nà ị̀njị ḅàkà mẹ̀',
+                                'exampleTranslation': 'There was a lot of smoked-dried fish'
+                            },
+                            {
+                                'okrika': 'ànànà',
+                                'english': 'grill / smoke (fish)',
+                                'singular': 'ànànà',
+                                'example': 'Árị́ ị̀njị ànànà àḅẹ̀',
+                                'exampleTranslation': 'She is smoking fish'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 3,
+                        'title': 'Food prep actions',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'tèmì',
+                                'english': 'pound',
+                                'singular': 'tèmì',
+                                'example': 'Ìkù Ị́ tèmì ḍị̀ñ?',
+                                'exampleTranslation': 'Do you know how to pound cocoyam?'
+                            },
+                            {
+                                'okrika': 'gbẹ́ị̀ñ',
+                                'english': 'grind',
+                                'singular': 'gbẹ́ị̀ñ',
+                                'example': 'Kẹ̀lẹ̀ fụ́lọ̀ chụ̀ạ̀ àyẹmà gbẹ̀ị̀ñ ị̀ pị̀rị̀',
+                                'exampleTranslation': 'Please grind the soup ingredients for me'
+                            },
+                            {
+                                'okrika': 'sẹ́ngị̀',
+                                'english': 'slice',
+                                'singular': 'sẹ́ngị̀',
+                                'example': 'Ị́jápụ́ mị́, ị́ sẹ̣́ngị́ sà?',
+                                'exampleTranslation': 'Have you sliced the cassava?'
+                            },
+                            {
+                                'okrika': 'kị́rị́',
+                                'english': 'chop',
+                                'singular': 'kị́rị́',
+                                'example': 'Fụ̀lọ̀ chụ̀ọ̀ ị̀ñyàñyà mà kị̀rị̀',
+                                'exampleTranslation': 'Chop the green (soup) vegetables'
+                            },
+                            {
+                                'okrika': 'wólì',
+                                'english': 'cut',
+                                'singular': 'wólì',
+                                'example': 'Námá mị̀ ọ̀ wòlì sàm',
+                                'exampleTranslation': 'He has chopped the meat'
+                            },
+                            {
+                                'okrika': 'ọ̀ngị̀',
+                                'english': 'peel (oranges)',
+                                'singular': 'ọ̀ngị̀',
+                                'example': 'Èlẹ̀lẹ̀ndà mà ọ̀ngị̄ wà pị̀rị̀',
+                                'exampleTranslation': 'Peel the oranges for us'
+                            },
+                            {
+                                'okrika': 'pị́nị́',
+                                'english': 'peel (plantain, cassava)',
+                                'singular': 'pị́nị́',
+                                'example': 'Mbị́nà mà pị̀nị̀',
+                                'exampleTranslation': 'Peel the plantains'
+                            },
+                            {
+                                'okrika': 'ñwọ̀ị̀ñ',
+                                'english': 'scrape',
+                                'singular': 'ñwọ̀ị̀ñ',
+                                'example': 'Fọ̀ị̀ mbị́nà mà ñwọ̀ị̀ñ',
+                                'exampleTranslation': 'Scrape the roasted plantains'
+                            },
+                            {
+                                'okrika': 'ḍù',
+                                'english': 'scoop',
+                                'singular': 'ḍù',
+                                'example': 'Àkị́ḍị̀ ḍū ọ̣̀ pị̀rị̀',
+                                'exampleTranslation': 'Scoop beans for him'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 4,
+                        'title': 'Eating and drinking',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'fị́',
+                                'english': 'eat',
+                                'singular': 'fị́',
+                                'example': 'Ḅò yẹ fị̀',
+                                'exampleTranslation': 'Come and eat'
+                            },
+                            {
+                                'okrika': 'tòkùrù',
+                                'english': 'chew',
+                                'singular': 'tòkùrù',
+                                'example': 'Ìḅịọ̀kụ̀ mà ànị́ tòkùrù',
+                                'exampleTranslation': 'Chew it very well'
+                            },
+                            {
+                                'okrika': 'mị̀nị̀',
+                                'english': 'swallow',
+                                'singular': 'mị̀nị̀',
+                                'example': 'Ḅù ḍịrị mị̀ mị̀nị̀',
+                                'exampleTranslation': 'Swallow the tablets'
+                            },
+                            {
+                                'okrika': 'ḅù',
+                                'english': 'drink',
+                                'singular': 'ḅù',
+                                'example': 'Mẹ̀ngị̀ mị̀, ḅù',
+                                'exampleTranslation': 'Drink the water'
+                            },
+                            {
+                                'okrika': 'féní',
+                                'english': 'rice',
+                                'singular': 'féní',
+                                'example': 'Á féní fị́yẹ chụ̀ọ̄ àḅẹ̀',
+                                'exampleTranslation': 'She is cooking rice'
+                            },
+                            {
+                                'okrika': 'ị̀njị',
+                                'english': 'fish',
+                                'singular': 'ị̀njị',
+                                'example': 'Tátárị́ ị̀njị mị̀ sù',
+                                'exampleTranslation': 'First, steam the fish'
+                            },
+                            {
+                                'okrika': 'mbị̀nà',
+                                'english': 'plantain',
+                                'singular': 'mbị̀nà',
+                                'example': 'Mbị́nà mà pị̀nị̀',
+                                'exampleTranslation': 'Peel the plantains'
+                            },
+                            {
+                                'okrika': 'mẹ̀ngị̀',
+                                'english': 'water',
+                                'singular': 'mẹ̀ngị̀',
+                                'example': 'Mẹ̀ngị̀ mị̀, ḅù',
+                                'exampleTranslation': 'Drink the water'
+                            },
+                            {
+                                'okrika': 'àkị́ḍị̀',
+                                'english': 'beans',
+                                'singular': 'àkị́ḍị̀',
+                                'example': 'Àkị́ḍị̀ ḍū ọ̣̀ pị̀rị̀',
+                                'exampleTranslation': 'Scoop beans for him'
+                            },
+                            {
+                                'okrika': 'námá',
+                                'english': 'meat',
+                                'singular': 'námá',
+                                'example': 'Námá mị̀ ọ̀ wòlì sàm',
+                                'exampleTranslation': 'He has chopped the meat'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 5,
+                        'title': 'Test your knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "chụ̀ọ̀" mean?',
+                                'correctAnswer': 'cook',
+                                'options': ['cook', 'eat', 'drink', 'boil']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "sù" mean?',
+                                'correctAnswer': 'steam',
+                                'options': ['steam', 'roast', 'boil', 'smoke']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "fị́" mean?',
+                                'correctAnswer': 'eat',
+                                'options': ['drink', 'eat', 'cook', 'chew']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "ḅù" mean?',
+                                'correctAnswer': 'drink',
+                                'options': ['eat', 'drink', 'swallow', 'cook']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'How do you say "Come and eat" in Okrika?',
+                                'correctAnswer': 'Ḅò yẹ fị̀',
+                                'options': ['Ḅò yẹ fị̀', 'Mẹ̀ngị̀ mị̀, ḅù', 'Ị́njị mị̀ sù', 'Àkị́ḍị̀ ḍù']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "mbị̀nà" mean?',
+                                'correctAnswer': 'plantain',
+                                'options': ['rice', 'fish', 'plantain', 'beans']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "pị́nị́" mean?',
+                                'correctAnswer': 'peel (plantain, cassava)',
+                                'options': ['chop', 'slice', 'peel (plantain, cassava)', 'scrape']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "tòkùrù" mean?',
+                                'correctAnswer': 'chew',
+                                'options': ['eat', 'chew', 'swallow', 'drink']
+                            }
+                        ]
+                    },
+                    {
+                        'part': 6,
+                        'title': 'At the table',
+                        'type': 'dialogue',
+                        'dialogues': [
+                            {
+                                'title': 'Mealtime',
+                                'exchanges': [
+                                    {
+                                        'speaker': 'Host',
+                                        'okrika': 'Ḅò yẹ fị̀',
+                                        'english': 'Come and eat'
+                                    },
+                                    {
+                                        'speaker': 'Guest',
+                                        'okrika': 'Mìébákà.',
+                                        'english': 'Thank you.'
+                                    },
+                                    {
+                                        'speaker': 'Host',
+                                        'okrika': 'Mẹ̀ngị̀ mị̀, ḅù.',
+                                        'english': 'Drink the water.'
+                                    },
+                                    {
+                                        'speaker': 'Host',
+                                        'okrika': 'Ìḅịọ̀kụ̀ mà ànị́ tòkùrù.',
+                                        'english': 'Chew it very well.'
+                                    }
+                                ]
+                            },
+                            {
+                                'title': 'In the kitchen',
+                                'exchanges': [
+                                    {
+                                        'speaker': 'Person A',
+                                        'okrika': 'À fị̀yẹ̀ chụ̀ọ̀ ḅimẹ̀. Mẹ̀ngị̀ mị̀ ḍárị́ sà?',
+                                        'english': 'I want to cook. Has the water boiled?'
+                                    },
+                                    {
+                                        'speaker': 'Person B',
+                                        'okrika': 'Ììn. Tátárị́ ị̀njị mị̀ sù.',
+                                        'english': 'Yes. First, steam the fish.'
+                                    },
+                                    {
+                                        'speaker': 'Person A',
+                                        'okrika': 'Kẹ̀lẹ̀ fụ́lọ̀ chụ̀ạ̀ àyẹmà gbẹ̀ị̀ñ ị̀ pị̀rị̀.',
+                                        'english': 'Please grind the soup ingredients for me.'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        6: {
+            'id': 6,
+            'title': 'Everyday Words and Tones',
+            'level': 'beginner',
+            'description': 'Learn common words from Okrika orthography and how tone changes meaning.',
+            'duration': '20 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'About tone in Okrika',
+                        'type': 'text',
+                        'content': 'In Okrika (Kịrịkị), tone is essential: the same spelling can mean different things when said with different pitch. For example, "so" with one tone means "sky" but with another tone "sọ" means "go away". This lesson uses words from the official Okrika orthography (Ngulube et al., NERDC). Practice listening for high and low pitch to tell words apart.'
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Learn everyday words',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'ịrị',
+                                'english': 'I, me',
+                                'singular': 'ịrị',
+                                'example': 'Ịrị éréméníbò-è',
+                                'exampleTranslation': 'I am a woman'
+                            },
+                            {
+                                'okrika': 'írí',
+                                'english': 'you (singular)',
+                                'singular': 'írí',
+                                'example': 'Írí ówúbọ-è',
+                                'exampleTranslation': 'You are a man'
+                            },
+                            {
+                                'okrika': 'ọ́ḅọ',
+                                'english': 'he',
+                                'singular': 'ọ́ḅọ',
+                                'example': 'Ọ́ḅọ deki mẹ',
+                                'exampleTranslation': 'He carried it'
+                            },
+                            {
+                                'okrika': 'ara',
+                                'english': 'her',
+                                'singular': 'ara',
+                                'example': 'Ara ịbịsịkị bọ mẹ',
+                                'exampleTranslation': 'She came early'
+                            },
+                            {
+                                'okrika': 'ẹrẹ',
+                                'english': 'name',
+                                'singular': 'ẹrẹ',
+                                'example': 'Ẹrẹ ịyà ànì Dede',
+                                'exampleTranslation': 'My name is Dede'
+                            },
+                            {
+                                'okrika': 'ere',
+                                'english': 'female',
+                                'singular': 'ere',
+                                'example': 'Ère ọwúbọ',
+                                'exampleTranslation': 'Female person'
+                            },
+                            {
+                                'okrika': 'pịrị',
+                                'english': 'give',
+                                'singular': 'pịrị',
+                                'example': 'Pịrị mí kana',
+                                'exampleTranslation': 'Give me the basket'
+                            },
+                            {
+                                'okrika': 'piri',
+                                'english': 'forest',
+                                'singular': 'piri',
+                                'example': 'Wa kiri piri',
+                                'exampleTranslation': 'We went to the forest'
+                            },
+                            {
+                                'okrika': 'tọrụ',
+                                'english': 'face',
+                                'singular': 'tọrụ',
+                                'example': 'Tọrụ ịyà bọ gbolu',
+                                'exampleTranslation': 'Your face is fine'
+                            },
+                            {
+                                'okrika': 'chiri',
+                                'english': 'market',
+                                'singular': 'chiri',
+                                'example': 'A so chiri',
+                                'exampleTranslation': 'She went to the market'
+                            },
+                            {
+                                'okrika': 'gịn',
+                                'english': 'write',
+                                'singular': 'gịn',
+                                'example': 'Ịrị gịn ẹrẹ',
+                                'exampleTranslation': 'I write (my) name'
+                            },
+                            {
+                                'okrika': 'kana',
+                                'english': 'basket',
+                                'singular': 'kana',
+                                'example': 'Deki kana',
+                                'exampleTranslation': 'Carry the basket'
+                            },
+                            {
+                                'okrika': 'nemi',
+                                'english': 'wisdom, know',
+                                'singular': 'nemi',
+                                'example': 'Ọ́ḅọ nemi',
+                                'exampleTranslation': 'He knows'
+                            },
+                            {
+                                'okrika': 'deki',
+                                'english': 'carry',
+                                'singular': 'deki',
+                                'example': 'Ọ deki mẹ',
+                                'exampleTranslation': 'He carried it'
+                            },
+                            {
+                                'okrika': 'bô',
+                                'english': 'come',
+                                'singular': 'bô',
+                                'example': 'A bô mẹ',
+                                'exampleTranslation': 'I came'
+                            },
+                            {
+                                'okrika': 'so',
+                                'english': 'sky',
+                                'singular': 'so',
+                                'example': 'So bọ dein',
+                                'exampleTranslation': 'The sky is peaceful'
+                            },
+                            {
+                                'okrika': 'sọ',
+                                'english': 'go away',
+                                'singular': 'sọ',
+                                'example': 'Sọ ọnịa',
+                                'exampleTranslation': 'Go away now'
+                            },
+                            {
+                                'okrika': 'minemgba',
+                                'english': 'all of us',
+                                'singular': 'minemgba',
+                                'example': 'Minemgba bô',
+                                'exampleTranslation': 'All of us came'
+                            },
+                            {
+                                'okrika': 'sẹniḅọ',
+                                'english': 'elder',
+                                'singular': 'sẹniḅọ',
+                                'example': 'Sẹniḅọ ịyà',
+                                'exampleTranslation': 'Your elder'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 3,
+                        'title': 'Test your knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "ịrị" mean?',
+                                'correctAnswer': 'I, me',
+                                'options': ['I, me', 'you', 'he', 'her']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "chiri" mean?',
+                                'correctAnswer': 'market',
+                                'options': ['forest', 'market', 'basket', 'name']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "pịrị" mean?',
+                                'correctAnswer': 'give',
+                                'options': ['give', 'carry', 'come', 'go away']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'In Okrika, "so" can mean "sky". What does "sọ" (different tone) mean?',
+                                'correctAnswer': 'go away',
+                                'options': ['sky', 'come', 'go away', 'wisdom']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "deki" mean?',
+                                'correctAnswer': 'carry',
+                                'options': ['give', 'carry', 'write', 'know']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "sẹniḅọ" mean?',
+                                'correctAnswer': 'elder',
+                                'options': ['elder', 'female', 'name', 'basket']
+                            }
+                        ]
+                    },
+                    {
+                        'part': 4,
+                        'title': 'Short dialogue',
+                        'type': 'dialogue',
+                        'dialogues': [
+                            {
+                                'title': 'At the market',
+                                'exchanges': [
+                                    {
+                                        'speaker': 'Person A',
+                                        'okrika': 'Írí bô chiri?',
+                                        'english': 'Did you come to the market?'
+                                    },
+                                    {
+                                        'speaker': 'Person B',
+                                        'okrika': 'Ììn, ịrị bô mẹ. Pịrị mí kana.',
+                                        'english': 'Yes, I came. Give me the basket.'
+                                    },
+                                    {
+                                        'speaker': 'Person A',
+                                        'okrika': 'Mí ẹrẹ ịyà ànì?',
+                                        'english': 'What is your name?'
+                                    },
+                                    {
+                                        'speaker': 'Person B',
+                                        'okrika': 'Ẹrẹ ịyà ànì Dede.',
+                                        'english': 'My name is Dede.'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     }
     
@@ -1016,6 +1869,25 @@ def get_lesson(lesson_id):
         return jsonify({'error': 'Lesson not found'}), 404
     
     return jsonify(lesson), 200
+
+@api_bp.route('/profile', methods=['GET'])
+def get_profile():
+    """Get current user profile with fake data (lessons completed, etc.)"""
+    # Fake profile data — in production this would come from auth + database
+    return jsonify({
+        'user': {
+            'id': 1,
+            'name': 'Alex',
+            'email': 'alex@example.com',
+            'avatar': None,
+            'joinedAt': '2025-01-15',
+            'streak': 5,
+            'totalLessonsCompleted': 2,
+            'totalStoriesCompleted': 1,
+        },
+        'completedLessonIds': [0, 1],
+        'completedStoryIds': [0],
+    }), 200
 
 @api_bp.route('/about', methods=['GET'])
 def get_about():
@@ -1044,22 +1916,6 @@ def get_stories():
             'level': 'beginner',
             'description': 'A simple story about two people meeting for the first time',
             'readingTime': '5 minutes',
-            'category': 'daily_life'
-        },
-        {
-            'id': 1,
-            'title': 'Family Gathering',
-            'level': 'beginner',
-            'description': 'A story about a family coming together for a meal',
-            'readingTime': '7 minutes',
-            'category': 'family'
-        },
-        {
-            'id': 2,
-            'title': 'Market Day',
-            'level': 'intermediate',
-            'description': 'Follow a conversation at the local market',
-            'readingTime': '10 minutes',
             'category': 'daily_life'
         }
     ]

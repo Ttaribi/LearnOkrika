@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import './Lessons.css'
+
+const stepColors = ['#6C63FF', '#1DB89A', '#E5A100', '#E8567F', '#3B82F6', '#A855F7']
 
 const Lessons = () => {
   const [lessons, setLessons] = useState([])
@@ -20,7 +20,6 @@ const Lessons = () => {
       setLessons(data.lessons || [])
     } catch (error) {
       console.error('Error fetching lessons:', error)
-      // Fallback to default lessons if API fails
       setLessons([
         {
           id: 0,
@@ -50,58 +49,65 @@ const Lessons = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <div className="lessons-loading">
-          <div className="loading-spinner"></div>
-          <p>Loading lessons...</p>
-        </div>
-        <Footer />
-      </>
+      <div className="lessons-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading lessons...</p>
+      </div>
     )
   }
 
   return (
-    <>
-      <Header />
-      <div className="lessons-page">
-        <div className="lessons-container">
-          <div className="lessons-header">
-            <h1>Start Learning Okrika</h1>
-            <p>Choose a lesson to begin your journey learning the Okrika language</p>
-          </div>
-
-          <div className="lessons-grid">
-            {lessons.map((lesson) => (
-              <div 
-                key={lesson.id} 
-                className="lesson-card"
-                onClick={() => handleLessonClick(lesson.id)}
-              >
-                <div className="lesson-card-header">
-                  <span className="lesson-level">{lesson.level}</span>
-                  <span className="lesson-duration">⏱️ {lesson.duration}</span>
-                </div>
-                <h3>{lesson.title}</h3>
-                <p>{lesson.description}</p>
-                <button className="lesson-button">
-                  Start Lesson →
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {lessons.length === 0 && (
-            <div className="no-lessons">
-              <p>No lessons available yet. Check back soon!</p>
-            </div>
-          )}
+    <div className="lessons-page">
+      <div className="lessons-container">
+        <div className="lessons-header">
+          <h1>Your Learning Path</h1>
+          <p>Work through each lesson in order to build your Okrika skills step by step</p>
         </div>
+
+        {/* Sequential lesson path */}
+        <div className="lesson-path">
+          {lessons.map((lesson, index) => {
+            const color = stepColors[index % stepColors.length]
+            return (
+              <div
+                key={lesson.id}
+                className="path-item"
+                onClick={() => handleLessonClick(lesson.id)}
+                style={{ '--step-color': color }}
+              >
+                {/* Connector line */}
+                {index < lessons.length - 1 && <div className="path-connector" />}
+
+                {/* Step number circle */}
+                <div className="path-step">
+                  <span className="step-number">{index + 1}</span>
+                </div>
+
+                {/* Lesson card */}
+                <div className="path-card">
+                  <div className="path-card-top">
+                    <span className={`path-level ${lesson.level}`}>{lesson.level}</span>
+                    <span className="path-duration">{lesson.duration}</span>
+                  </div>
+                  <h3>{lesson.title}</h3>
+                  <p>{lesson.description}</p>
+                  <button className="path-btn">
+                    {index === 0 ? 'Start Here →' : 'Begin Lesson →'}
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {lessons.length === 0 && (
+          <div className="no-lessons">
+            <p>No lessons available yet. Check back soon!</p>
+          </div>
+        )}
       </div>
-      <Footer />
-    </>
+    </div>
   )
 }
 
 export default Lessons
-

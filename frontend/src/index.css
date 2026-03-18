@@ -5,15 +5,39 @@
 }
 
 :root {
-  --primary-color: #1e8449;
-  --secondary-color: #f39c12;
-  --accent-color: #27ae60;
-  --dark-bg: #1a1a1a;
-  --light-bg: #f8f9fa;
-  --text-dark: #2c3e50;
-  --text-light: #ffffff;
-  --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Learn Okrika — brighter navy palette */
+  --bg-primary: #1F2D3D;
+  --bg-sidebar: #182738;
+  --bg-card: #283D52;
+  --bg-card-hover: #325168;
+
+  /* Color system */
+  --primary-color: #1DB89A;       /* teal */
+  --primary-hover: #17a088;
+  --secondary-color: #E5A100;     /* gold */
+  --accent-color: #4DD4AC;        /* mint */
+  --purple: #6C63FF;              /* indigo/purple */
+  --purple-hover: #5A52E0;
+  --pink: #E8567F;                /* warm pink */
+  --blue: #3B82F6;                /* bright blue */
+  --violet: #A855F7;              /* soft violet */
+
+  /* Text */
+  --text-primary: #EDF2F7;
+  --text-heading: #FFFFFF;
+  --text-secondary: #94A3B8;
+
+  /* Borders & misc */
+  --border-color: #3A5068;
+  --danger-color: #D94F4F;
+
+  /* Legacy mappings */
+  --dark-bg: #182738;
+  --light-bg: #283D52;
+  --text-dark: #EDF2F7;
+  --text-light: #EDF2F7;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 html {
@@ -23,15 +47,34 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
-  color: var(--text-dark);
+  color: var(--text-primary);
+  background: var(--bg-primary);
   overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
 /* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -40,28 +83,19 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 .fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 .fade-in {
-  animation: fadeIn 0.8s ease-out;
+  animation: fadeIn 0.6s ease-out;
 }
-
