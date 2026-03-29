@@ -80,6 +80,30 @@ def get_lessons():
             'description': 'Learn common words from Okrika orthography and how tone changes meaning.',
             'duration': '20 minutes',
             'category': 'vocabulary'
+        },
+        {
+            'id': 7,
+            'title': 'Showing Time: Part 1',
+            'level': 'beginner',
+            'description': 'Learn core words and phrases for expressing time in Okrika.',
+            'duration': '15 minutes',
+            'category': 'vocabulary'
+        },
+        {
+            'id': 9,
+            'title': 'Showing Time: Part 2',
+            'level': 'beginner',
+            'description': 'Continue learning time expressions and frequency words in Okrika.',
+            'duration': '15 minutes',
+            'category': 'vocabulary'
+        },
+        {
+            'id': 8,
+            'title': 'Question Words',
+            'level': 'beginner',
+            'description': 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
+            'duration': '15 minutes',
+            'category': 'vocabulary'
         }
     ]
     
@@ -1861,6 +1885,324 @@ def get_lesson(lesson_id):
                     }
                 ]
             }
+        },
+        7: {
+            'id': 7,
+            'title': 'Showing Time: Part 1',
+            'level': 'beginner',
+            'description': 'Learn core words and phrases for expressing time in Okrika.',
+            'duration': '15 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'Learn time words',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'míókù',
+                                'english': 'now; this moment',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'At the present time',
+                                'example': 'Míókù í bô au?',
+                                'exampleTranslation': 'Are you coming now?'
+                            },
+                            {
+                                'okrika': 'kélédīkī',
+                                'english': 'afterwards; sometime later',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'At a later or future time',
+                                'example': 'kélédīkī à mèngí bû bià?',
+                                'exampleTranslation': 'Later I will drink water'
+                            },
+                            {
+                                'okrika': 'mímgbà',
+                                'english': 'today',
+                                'partOfSpeech': 'noun',
+                                'definition': 'On or in the course of this present day',
+                                'example': 'Mímgbà ò dàdíkì gíén mè',
+                                'exampleTranslation': 'He wrote his exam today'
+                            },
+                            {
+                                'okrika': 'sìméògbò',
+                                'english': 'while',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'During the time that',
+                                'example': 'Sìméògbò í ómì, bô yéfí',
+                                'exampleTranslation': 'While you are here, come and eat'
+                            },
+                            {
+                                'okrika': 'bịá',
+                                'english': 'yesterday',
+                                'partOfSpeech': 'noun',
+                                'definition': 'The day before today',
+                                'example': 'Bịá ó só mè',
+                                'exampleTranslation': 'He left yesterday'
+                            },
+                            {
+                                'okrika': 'bá',
+                                'english': 'tomorrow',
+                                'partOfSpeech': 'noun',
+                                'definition': 'The day after today',
+                                'example': 'Bá í múñ be?',
+                                'exampleTranslation': 'Will you go tomorrow?'
+                            },
+                            {
+                                'okrika': 'Ḍíñ-ógbò',
+                                'english': 'midnight',
+                                'partOfSpeech': 'noun',
+                                'definition': 'The middle of the night',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'gbásó',
+                                'english': 'forever',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'For all time; eternally',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'N̄gịsị̀',
+                                'english': 'never',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'At no time; not ever',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Ólómú sịkị',
+                                'english': 'ancient times',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'A long time ago in the past',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Sị́kị́ná sị́kị́ná',
+                                'english': 'as time goes on; eventually; time and again',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Over time; in the end; repeatedly',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Sị́kị́ mámgbà',
+                                'english': 'every time',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'On each occasion; always when',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Ótókú',
+                                'english': 'noon',
+                                'partOfSpeech': 'noun',
+                                'definition': 'Twelve o\'clock in the day; midday',
+                                'example': '',
+                                'exampleTranslation': ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        9: {
+            'id': 9,
+            'title': 'Showing Time: Part 2',
+            'level': 'beginner',
+            'description': 'Continue learning time expressions and frequency words in Okrika.',
+            'duration': '15 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'More time words',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'Súsú bẹ́-ẹ́né',
+                                'english': 'three days ago',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Three days before today',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Básó',
+                                'english': 'early morning',
+                                'partOfSpeech': 'noun',
+                                'definition': 'The first part of the morning',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Dèdè fúñ fúñ',
+                                'english': 'very early in the morning',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'At dawn; very early before sunrise',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Bé réñ-béré-éné',
+                                'english': 'day before yesterday',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Two days ago',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Bá bọ́rọ́ bé réñ-béré-éné',
+                                'english': 'day after tomorrow',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Two days from now',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Dị́ñ',
+                                'english': 'night',
+                                'partOfSpeech': 'noun',
+                                'definition': 'The period of darkness between sunset and sunrise',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Éné tíḅì',
+                                'english': 'daily',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'Every day; each day',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Éné góyè gòyè, éné máñgbà',
+                                'english': 'every day',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Each day without exception',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Éné kákà (kúḅù)',
+                                'english': 'day time',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'The time when it is light; daytime',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Dàsìkì',
+                                'english': 'sometimes',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'On some occasions; occasionally',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Bàkà síkí (bụ̀)',
+                                'english': 'most times',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Usually; on most occasions',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Sị́kị́ góyè gòyè',
+                                'english': 'regularly',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'At consistent intervals; habitually',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Sịkị fámá',
+                                'english': 'delay',
+                                'partOfSpeech': 'noun',
+                                'definition': 'A period of time by which something is late',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'Sịkị fámá ká bù',
+                                'english': 'immediately',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'At once; without delay',
+                                'example': '',
+                                'exampleTranslation': ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        8: {
+            'id': 8,
+            'title': 'Question Words',
+            'level': 'beginner',
+            'description': 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
+            'duration': '15 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'Learn question words',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'ñdèjù',
+                                'english': 'where',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Asking for information specifying a location',
+                                'example': 'Ñdèjù ìní ñwòñ mũñ àù?',
+                                'exampleTranslation': 'Where are they going?'
+                            },
+                            {
+                                'okrika': 'ñdè sịkị',
+                                'english': 'when',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Asking about time',
+                                'example': 'Ñdè sịkị í bô?',
+                                'exampleTranslation': 'When are you coming?'
+                            },
+                            {
+                                'okrika': 'ñdè bọ̀',
+                                'english': 'who',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Asking about a person',
+                                'example': 'Ñdè bọ̀ ọ́ wú?',
+                                'exampleTranslation': 'Who is that?'
+                            },
+                            {
+                                'okrika': 'àṇị̀ bọ̀ mị̀',
+                                'english': 'whom',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Asking about which person (object)',
+                                'example': 'Àṇị̀ bọ̀ mị̀ í kéréní?',
+                                'exampleTranslation': 'Whom did you greet?'
+                            },
+                            {
+                                'okrika': 'chèyè',
+                                'english': 'what',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Asking about a thing or action',
+                                'example': 'Chèyè í sọ?',
+                                'exampleTranslation': 'What did you say?'
+                            },
+                            {
+                                'okrika': 'chèyè pàkà',
+                                'english': 'what happened',
+                                'partOfSpeech': 'phrase',
+                                'definition': 'Asking about an event or occurrence',
+                                'example': 'Chèyè pàkà?',
+                                'exampleTranslation': 'What happened?'
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     }
     
@@ -1916,6 +2258,14 @@ def get_stories():
             'level': 'beginner',
             'description': 'A simple story about two people meeting for the first time',
             'readingTime': '5 minutes',
+            'category': 'daily_life'
+        },
+        {
+            'id': 1,
+            'title': '"Tátárí gō ḍìrì" by Levi Sika, Vol.1',
+            'level': 'intermediate',
+            'description': 'Follow Amba on a morning trip to the market, where she runs into Titi and learns about Kaine — a seamstress who sews and sells goods under a tree.',
+            'readingTime': '7 minutes',
             'category': 'daily_life'
         }
     ]
@@ -2058,9 +2408,53 @@ def get_story(story_id):
                     
                 ]
             }
+        },
+        1: {
+            'id': 1,
+            'title': '"Tátárí gō ḍìrì" by Levi Sika, Vol.1',
+            'level': 'intermediate',
+            'description': 'Follow Amba on a morning trip to the market, where she runs into Titi and learns about Kaine — a seamstress who sews and sells goods under a tree.',
+            'readingTime': '7 minutes',
+            'content': {
+                'type': 'paragraphs',
+                'paragraphs': [
+                    {
+                        'okrika': 'Dèdè bìè mí Ámbà má á páká ògòñò mùñ yè è',
+                        'english': 'So, it was in the morning, that Amba went out to the Market.'
+                    },
+                    {
+                        'okrika': 'Àtèlì ògbò á bò àrì sìkì á Tìtí má nà bìáñ mà sé,',
+                        'english': 'As she was coming on the way, she ran into Titi'
+                    },
+                    {
+                        'okrika': 'á gbèlà mè ñwò fà á ògòñò mùñ á òtùbò?',
+                        'english': 'and asked her if she was going to the Market.'
+                    },
+                    {
+                        'okrika': 'Tìtì mà á pékéré mè nà á mùñ Káínè mà bàrà búchùáyè ñwò fè òmū àbè.',
+                        'english': 'Titi answered her and said, that she was going to Kaine to buy clothes'
+                    },
+                    {
+                        'okrika': 'Káínè mà á búchùáyè gbìñ gbìñ mè, píkínà dòkò dòkò àyè dèrì dèrì mè.',
+                        'english': 'Kaine, sews clothes and also sells various little items'
+                    },
+                    {
+                        'okrika': 'Éjìé chùkù á sìmè árá yè gbìñ gbìñ mè, mìè sè Írùá á lá èkà bàrà.',
+                        'english': 'She sews under a tree so that the sun will not beat her'
+                    },
+                    {
+                        'okrika': 'Á gbìñ só sà tòñā búchùáyè á ñwò sè éjìé bù sùkà sùkà mè.',
+                        'english': 'She hangs a lot of the clothes she sewed on the tree.'
+                    },
+                    {
+                        'okrika': 'Á víñpìkì bò sìkì á élèlèñdà fè bò mè',
+                        'english': 'On her return she bought oranges.'
+                    }
+                ]
+            }
         }
     }
-    
+
     story = story_data.get(story_id)
     if not story:
         return jsonify({'error': 'Story not found'}), 404

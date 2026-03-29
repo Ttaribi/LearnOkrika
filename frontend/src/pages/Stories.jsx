@@ -23,10 +23,18 @@ const Stories = () => {
       setStories([
         {
           id: 0,
-          title: 'A Morning in Okrika',
+          title: 'Introduction in Okrika',
           level: 'beginner',
-          description: 'A simple story about a morning greeting between friends',
+          description: 'A simple story about two people meeting for the first time',
           readingTime: '5 minutes',
+          category: 'daily_life'
+        },
+        {
+          id: 1,
+          title: '"Tátárí gō ḍìrì" by Levi Sika, Vol.1',
+          level: 'intermediate',
+          description: 'Follow Amba on a morning trip to the market, where she runs into Titi and learns about Kaine — a seamstress who sews and sells goods under a tree.',
+          readingTime: '7 minutes',
           category: 'daily_life'
         }
       ])

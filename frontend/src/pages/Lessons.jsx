@@ -36,6 +36,70 @@ const Lessons = () => {
           description: 'Learn essential greetings and how to say hello in Okrika',
           duration: '15 minutes',
           category: 'greetings'
+        },
+        {
+          id: 2,
+          title: 'Pronouns',
+          level: 'beginner',
+          description: 'Learn personal pronouns in Okrika',
+          duration: '20 minutes',
+          category: 'grammar'
+        },
+        {
+          id: 3,
+          title: 'Common Verbs',
+          level: 'beginner',
+          description: 'Learn essential verbs and their conjugations in Okrika',
+          duration: '25 minutes',
+          category: 'grammar'
+        },
+        {
+          id: 4,
+          title: 'Family and Relationships',
+          level: 'beginner',
+          description: 'Learn vocabulary for family members and relationships',
+          duration: '25 minutes',
+          category: 'vocabulary'
+        },
+        {
+          id: 5,
+          title: 'Food and Dining',
+          level: 'intermediate',
+          description: 'Essential phrases and vocabulary for food and dining',
+          duration: '30 minutes',
+          category: 'vocabulary'
+        },
+        {
+          id: 6,
+          title: 'Everyday Words and Tones',
+          level: 'beginner',
+          description: 'Learn common words from Okrika orthography and how tone changes meaning.',
+          duration: '20 minutes',
+          category: 'vocabulary'
+        },
+        {
+          id: 7,
+          title: 'Showing Time: Part 1',
+          level: 'beginner',
+          description: 'Learn core words and phrases for expressing time in Okrika.',
+          duration: '15 minutes',
+          category: 'vocabulary'
+        },
+        {
+          id: 9,
+          title: 'Showing Time: Part 2',
+          level: 'beginner',
+          description: 'Continue learning time expressions and frequency words in Okrika.',
+          duration: '15 minutes',
+          category: 'vocabulary'
+        },
+        {
+          id: 8,
+          title: 'Question Words',
+          level: 'beginner',
+          description: 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
+          duration: '15 minutes',
+          category: 'vocabulary'
         }
       ])
     } finally {
@@ -87,7 +151,6 @@ const Lessons = () => {
                 <div className="path-card">
                   <div className="path-card-top">
                     <span className={`path-level ${lesson.level}`}>{lesson.level}</span>
-                    <span className="path-duration">{lesson.duration}</span>
                   </div>
                   <h3>{lesson.title}</h3>
                   <p>{lesson.description}</p>

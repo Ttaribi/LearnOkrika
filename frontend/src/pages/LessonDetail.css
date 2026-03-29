@@ -177,6 +177,19 @@
   margin: 0;
 }
 
+.vocab-part-of-speech {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.vocab-definition {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0.35rem 0 0;
+  font-weight: 400;
+}
+
 .vocab-forms {
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -604,6 +617,27 @@
   padding: 1.25rem;
   border-radius: 12px;
   background: var(--bg-primary);
+
+  animation: quiz-feedback-in 0.5s ease-out 0.25s both;
+}
+
+@keyframes quiz-feedback-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-feedback {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .feedback-correct {

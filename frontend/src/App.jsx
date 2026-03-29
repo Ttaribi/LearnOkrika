@@ -8,6 +8,7 @@ import Stories from './pages/Stories'
 import StoryDetail from './pages/StoryDetail'
 import Profile from './pages/Profile'
 import Auth from './pages/Auth'
+import About from './components/About'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/stories/:storyId" element={<StoryDetail />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Auth />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </AppLayout>
     </Router>

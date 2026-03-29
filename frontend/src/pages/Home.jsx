@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.css'
 
-const stats = [
-  { number: '1,000+', label: 'Active Learners', icon: '👥', color: '#6C63FF' },
-  { number: '50+', label: 'Lessons', icon: '📖', color: '#1DB89A' },
-  { number: '24/7', label: 'Access', icon: '🌐', color: '#E5A100' },
-  { number: 'Free', label: 'To Start', icon: '✨', color: '#E8567F' },
-]
-
 function Home() {
   const navigate = useNavigate()
   const [lessons, setLessons] = useState([])
@@ -67,20 +60,6 @@ function Home() {
             </div>
           </div>
           <div className="continue-arrow">→</div>
-        </div>
-      </div>
-
-      {/* Quick Stats */}
-      <div className="section">
-        <h2 className="section-title">Your Learning Journey</h2>
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div key={index} className="stat-card" style={{ borderTop: `3px solid ${stat.color}` }}>
-              <span className="stat-icon">{stat.icon}</span>
-              <span className="stat-number" style={{ color: stat.color }}>{stat.number}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-          ))}
         </div>
       </div>
 

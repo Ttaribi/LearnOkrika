@@ -42,10 +42,13 @@ const Sidebar = () => {
           </ul>
         </div>
         <div className="sidebar-bottom">
-          <div className="sidebar-about">
+          <NavLink
+            to="/about"
+            className={`sidebar-link ${isActive('/about') ? 'active' : ''}`}
+          >
             <span className="sidebar-icon">ℹ️</span>
             <span className="sidebar-label">About Okrika</span>
-          </div>
+          </NavLink>
         </div>
       </nav>
 

@@ -136,7 +136,153 @@ const LessonDetail = () => {
         }
       }
     }
-    return lessons[id] || lessons[1]
+    const placeholders = {
+      2: {
+        id: 2,
+        title: 'Pronouns',
+        level: 'beginner',
+        description: 'Learn personal pronouns in Okrika',
+        content: {
+          sections: [
+            {
+              title: 'Coming soon',
+              type: 'text',
+              content: 'This lesson content will load automatically once the backend API is reachable in production.'
+            }
+          ]
+        }
+      },
+      3: {
+        id: 3,
+        title: 'Common Verbs',
+        level: 'beginner',
+        description: 'Learn essential verbs and their conjugations in Okrika',
+        content: {
+          sections: [
+            {
+              title: 'Coming soon',
+              type: 'text',
+              content: 'This lesson content will load automatically once the backend API is reachable in production.'
+            }
+          ]
+        }
+      },
+      4: {
+        id: 4,
+        title: 'Family and Relationships',
+        level: 'beginner',
+        description: 'Learn vocabulary for family members and relationships',
+        content: {
+          sections: [
+            {
+              title: 'Coming soon',
+              type: 'text',
+              content: 'This lesson content will load automatically once the backend API is reachable in production.'
+            }
+          ]
+        }
+      },
+      5: {
+        id: 5,
+        title: 'Food and Dining',
+        level: 'intermediate',
+        description: 'Essential phrases and vocabulary for food and dining',
+        content: {
+          sections: [
+            {
+              title: 'Coming soon',
+              type: 'text',
+              content: 'This lesson content will load automatically once the backend API is reachable in production.'
+            }
+          ]
+        }
+      },
+      6: {
+        id: 6,
+        title: 'Everyday Words and Tones',
+        level: 'beginner',
+        description: 'Learn common words from Okrika orthography and how tone changes meaning.',
+        content: {
+          sections: [
+            {
+              title: 'Coming soon',
+              type: 'text',
+              content: 'This lesson content will load automatically once the backend API is reachable in production.'
+            }
+          ]
+        }
+      },
+      7: {
+        id: 7,
+        title: 'Showing Time',
+        level: 'beginner',
+        description: 'Learn words and phrases for expressing time in Okrika.',
+        duration: '15 minutes',
+        content: {
+          parts: [
+            {
+              part: 1,
+              title: 'Learn time words',
+              type: 'vocabulary',
+              items: [
+                { okrika: 'míókù', english: 'now; this moment', partOfSpeech: 'adverb', definition: 'At the present time', example: 'Míókù í bô au?', exampleTranslation: 'Are you coming now?' },
+                { okrika: 'kélédīkī', english: 'afterwards; sometime later', partOfSpeech: 'adverb', definition: 'At a later or future time', example: 'kélédīkī à mèngí bû bià?', exampleTranslation: 'Later I will drink water' },
+                { okrika: 'mímgbà', english: 'today', partOfSpeech: 'noun', definition: 'On or in the course of this present day', example: 'Mímgbà ò dàdíkì gíén mè', exampleTranslation: 'He wrote his exam today' },
+                { okrika: 'sìméògbò', english: 'while', partOfSpeech: 'conjunction', definition: 'During the time that', example: 'Sìméògbò í ómì, bô yéfí', exampleTranslation: 'While you are here, come and eat' },
+                { okrika: 'bịá', english: 'yesterday', partOfSpeech: 'noun', definition: 'The day before today', example: 'Bịá ó só mè', exampleTranslation: 'He left yesterday' },
+                { okrika: 'bá', english: 'tomorrow', partOfSpeech: 'noun', definition: 'The day after today', example: 'Bá í múñ be?', exampleTranslation: 'Will you go tomorrow?' },
+                { okrika: 'Ḍíñ-ógbò', english: 'midnight', partOfSpeech: 'noun', definition: 'The middle of the night' },
+                { okrika: 'gbásó', english: 'forever', partOfSpeech: 'adverb', definition: 'For all time; eternally' },
+                { okrika: 'N̄gịsị̀', english: 'never', partOfSpeech: 'adverb', definition: 'At no time; not ever' },
+                { okrika: 'Ólómú sịkị', english: 'ancient times', partOfSpeech: 'phrase', definition: 'A long time ago in the past' },
+                { okrika: 'Sị́kị́ná sị́kị́ná', english: 'as time goes on; eventually; time and again', partOfSpeech: 'phrase', definition: 'Over time; in the end; repeatedly' },
+                { okrika: 'Sị́kị́ mámgbà', english: 'every time', partOfSpeech: 'phrase', definition: 'On each occasion; always when' },
+                { okrika: 'Ótókú', english: 'noon', partOfSpeech: 'noun', definition: 'Twelve o\'clock in the day; midday' },
+                { okrika: 'Súsú bẹ́-ẹ́né', english: 'three days ago', partOfSpeech: 'phrase', definition: 'Three days before today' },
+                { okrika: 'Básó', english: 'early morning', partOfSpeech: 'noun', definition: 'The first part of the morning' },
+                { okrika: 'Dèdè fúñ fúñ', english: 'very early in the morning', partOfSpeech: 'phrase', definition: 'At dawn; very early before sunrise' },
+                { okrika: 'Bé réñ-béré-éné', english: 'day before yesterday', partOfSpeech: 'phrase', definition: 'Two days ago' },
+                { okrika: 'Bá bọ́rọ́ bé réñ-béré-éné', english: 'day after tomorrow', partOfSpeech: 'phrase', definition: 'Two days from now' },
+                { okrika: 'Dị́ñ', english: 'night', partOfSpeech: 'noun', definition: 'The period of darkness between sunset and sunrise' },
+                { okrika: 'Éné tíḅì', english: 'daily', partOfSpeech: 'adverb', definition: 'Every day; each day' },
+                { okrika: 'Éné góyè gòyè, éné máñgbà', english: 'every day', partOfSpeech: 'phrase', definition: 'Each day without exception' },
+                { okrika: 'Éné kákà (kúḅù)', english: 'day time', partOfSpeech: 'phrase', definition: 'The time when it is light; daytime' },
+                { okrika: 'Dàsìkì', english: 'sometimes', partOfSpeech: 'adverb', definition: 'On some occasions; occasionally' },
+                { okrika: 'Bàkà síkí (bụ̀)', english: 'most times', partOfSpeech: 'phrase', definition: 'Usually; on most occasions' },
+                { okrika: 'Sị́kị́ góyè gòyè', english: 'regularly', partOfSpeech: 'adverb', definition: 'At consistent intervals; habitually' },
+                { okrika: 'Sịkị fámá', english: 'delay', partOfSpeech: 'noun', definition: 'A period of time by which something is late' },
+                { okrika: 'Sịkị fámá ká bù', english: 'immediately', partOfSpeech: 'adverb', definition: 'At once; without delay' }
+              ]
+            }
+          ]
+        }
+      },
+      8: {
+        id: 8,
+        title: 'Question Words',
+        level: 'beginner',
+        description: 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
+        duration: '15 minutes',
+        content: {
+          parts: [
+            {
+              part: 1,
+              title: 'Learn question words',
+              type: 'vocabulary',
+              items: [
+                { okrika: 'ñdèjù', english: 'where', partOfSpeech: 'pronoun', definition: 'Asking for information specifying a location', example: 'Ñdèjù ìní ñwòñ mũñ àù?', exampleTranslation: 'Where are they going?' },
+                { okrika: 'ñdè sịkị', english: 'when', partOfSpeech: 'pronoun', definition: 'Asking about time', example: 'Ñdè sịkị í bô?', exampleTranslation: 'When are you coming?' },
+                { okrika: 'ñdè bọ̀', english: 'who', partOfSpeech: 'pronoun', definition: 'Asking about a person', example: 'Ñdè bọ̀ ọ́ wú?', exampleTranslation: 'Who is that?' },
+                { okrika: 'àṇị̀ bọ̀ mị̀', english: 'whom', partOfSpeech: 'pronoun', definition: 'Asking about which person (object)', example: 'Àṇị̀ bọ̀ mị̀ í kéréní?', exampleTranslation: 'Whom did you greet?' },
+                { okrika: 'chèyè', english: 'what', partOfSpeech: 'pronoun', definition: 'Asking about a thing or action', example: 'Chèyè í sọ?', exampleTranslation: 'What did you say?' },
+                { okrika: 'chèyè pàkà', english: 'what happened', partOfSpeech: 'phrase', definition: 'Asking about an event or occurrence', example: 'Chèyè pàkà?', exampleTranslation: 'What happened?' }
+              ]
+            }
+          ]
+        }
+      }
+    }
+    return lessons[id] || placeholders[id] || lessons[1]
   }
 
   // Check if lesson has parts structure (for lessons 1 and 2)
@@ -331,6 +477,9 @@ const LessonDetail = () => {
                         <div className="vocab-okrika">
                           <div className="vocab-okrika-header">
                             <h3>{item.okrika}</h3>
+                            {item.partOfSpeech && (
+                              <span className="vocab-part-of-speech">({item.partOfSpeech})</span>
+                            )}
                             {item.audioUrl && (
                               <AudioPlayer 
                                 audioUrl={item.audioUrl} 
@@ -350,29 +499,25 @@ const LessonDetail = () => {
                           <p>{item.english}</p>
                         </div>
                       </div>
-                      {item.example && (
-                        <div className="vocab-example">
-                          <div className="example-okrika">
-                            <strong>Example:</strong> {item.example}
-                            {item.exampleAudioUrl && (
-                              <AudioPlayer 
-                                audioUrl={item.exampleAudioUrl} 
-                                label={`Play pronunciation of example: "${item.example}"`}
-                              />
-                            )}
-                          </div>
-                          {item.form && (
-                            <div className="form-indicator">
-                              <strong>Form:</strong> {item.form === 'singular' ? 'Singular' : 'Plural'}
-                            </div>
-                          )}
-                          {item.exampleTranslation && (
-                            <div className="example-translation">
-                              <strong>Translation:</strong> {item.exampleTranslation}
-                            </div>
+                      <div className="vocab-example">
+                        <div className="example-okrika">
+                          <strong>Example:</strong> {item.example || ''}
+                          {item.example && item.exampleAudioUrl && (
+                            <AudioPlayer 
+                              audioUrl={item.exampleAudioUrl} 
+                              label={`Play pronunciation of example: "${item.example}"`}
+                            />
                           )}
                         </div>
-                      )}
+                        {item.form && (
+                          <div className="form-indicator">
+                            <strong>Form:</strong> {item.form === 'singular' ? 'Singular' : 'Plural'}
+                          </div>
+                        )}
+                        <div className="example-translation">
+                          <strong>Translation:</strong> {item.exampleTranslation || ''}
+                        </div>
+                      </div>
                       {item.conjugations && (
                         <div className="vocab-conjugations">
                           <h4 className="conjugations-title">Conjugations:</h4>
@@ -645,6 +790,9 @@ const LessonDetail = () => {
                           <div className="vocab-okrika">
                             <div className="vocab-okrika-header">
                               <h3>{item.okrika}</h3>
+                              {item.partOfSpeech && (
+                                <span className="vocab-part-of-speech">({item.partOfSpeech})</span>
+                              )}
                               {item.audioUrl && (
                                 <AudioPlayer 
                                   audioUrl={item.audioUrl} 
@@ -657,24 +805,20 @@ const LessonDetail = () => {
                             <p>{item.english}</p>
                           </div>
                         </div>
-                        {item.example && (
-                          <div className="vocab-example">
-                            <div className="example-okrika">
-                              <strong>Example:</strong> {item.example}
-                              {item.exampleAudioUrl && (
-                                <AudioPlayer 
-                                  audioUrl={item.exampleAudioUrl} 
-                                  label={`Play pronunciation of example: "${item.example}"`}
-                                />
-                              )}
-                            </div>
-                            {item.exampleTranslation && (
-                              <div className="example-translation">
-                                <strong>Translation:</strong> {item.exampleTranslation}
-                              </div>
+                        <div className="vocab-example">
+                          <div className="example-okrika">
+                            <strong>Example:</strong> {item.example || ''}
+                            {item.example && item.exampleAudioUrl && (
+                              <AudioPlayer 
+                                audioUrl={item.exampleAudioUrl} 
+                                label={`Play pronunciation of example: "${item.example}"`}
+                              />
                             )}
                           </div>
-                        )}
+                          <div className="example-translation">
+                            <strong>Translation:</strong> {item.exampleTranslation || ''}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
