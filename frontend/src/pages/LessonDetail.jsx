@@ -4,6 +4,27 @@ import AudioPlayer from '../components/AudioPlayer'
 import { supabase } from '../lib/supabaseClient'
 import './LessonDetail.css'
 
+function shuffleArray(items) {
+  const copy = [...items]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
+
+function prepareQuizQuestions(questions) {
+  return shuffleArray(questions).map((q) => ({
+    ...q,
+    options: shuffleArray(q.options),
+  }))
+}
+
+function extractQuizWord(question) {
+  const match = question.match(/"([^"]+)"/)
+  return match ? match[1] : null
+}
+
 const LessonDetail = () => {
   const { lessonId } = useParams()
   const navigate = useNavigate()
@@ -14,6 +35,8 @@ const LessonDetail = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0) // For quiz
   const [selectedAnswer, setSelectedAnswer] = useState(null) // For quiz
   const [showAnswer, setShowAnswer] = useState(false) // For quiz
+  const [quizQuestions, setQuizQuestions] = useState([]) // Shuffled questions + options
+  const [incorrectAnswers, setIncorrectAnswers] = useState([]) // Mistakes during quiz
   const [expandedConjugations, setExpandedConjugations] = useState({}) // Track expanded conjugations: {itemIndex-tense: true/false}
   const [userId, setUserId] = useState(null)
 
@@ -50,7 +73,15 @@ const LessonDetail = () => {
     setCurrentQuestion(0)
     setSelectedAnswer(null)
     setShowAnswer(false)
-  }, [currentPart])
+    setIncorrectAnswers([])
+
+    const part = lesson?.content?.parts?.[currentPart]
+    if (part?.type === 'quiz' && part.questions?.length) {
+      setQuizQuestions(prepareQuizQuestions(part.questions))
+    } else {
+      setQuizQuestions([])
+    }
+  }, [currentPart, lesson])
 
   const fetchLesson = async () => {
     try {
@@ -197,21 +228,6 @@ const LessonDetail = () => {
           ]
         }
       },
-      6: {
-        id: 6,
-        title: 'Everyday Words and Tones',
-        level: 'beginner',
-        description: 'Learn common words from Okrika orthography and how tone changes meaning.',
-        content: {
-          sections: [
-            {
-              title: 'Coming soon',
-              type: 'text',
-              content: 'This lesson content will load automatically once the backend API is reachable in production.'
-            }
-          ]
-        }
-      },
       7: {
         id: 7,
         title: 'Showing Time',
@@ -295,20 +311,35 @@ const LessonDetail = () => {
   const currentSectionData = !hasParts ? sections[currentSection] : null
 
   // Quiz handlers
-  const handleAnswerSelect = (answer) => {
+  const handleAnswerSelect = (answer, question) => {
     if (showAnswer) return // Don't allow selection after answer is shown
     setSelectedAnswer(answer)
     setShowAnswer(true)
+
+    if (answer !== question.correctAnswer) {
+      const word = extractQuizWord(question.question)
+      const mistake = {
+        id: question.id ?? question.question,
+        word: word || question.question,
+        question: question.question,
+        yourAnswer: answer,
+        correctAnswer: question.correctAnswer,
+      }
+      setIncorrectAnswers((prev) =>
+        prev.some((m) => m.id === mistake.id) ? prev : [...prev, mistake]
+      )
+    }
   }
 
   const nextQuestion = () => {
-    const quizPart = parts.find(p => p.type === 'quiz')
-    if (currentQuestion < quizPart.questions.length - 1) {
+    if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setSelectedAnswer(null)
       setShowAnswer(false)
     }
   }
+
+  const activeQuizQuestion = quizQuestions[currentQuestion]
 
   const nextPart = () => {
     if (currentPart < parts.length - 1) {
@@ -675,33 +706,30 @@ const LessonDetail = () => {
             {hasParts && currentPartData?.type === 'quiz' && (
               <div className="lesson-section quiz-section">
                 <h2>{currentPartData.title}</h2>
-                {currentPartData.questions && currentPartData.questions.length > 0 && (
+                {quizQuestions.length > 0 && activeQuizQuestion && (
                   <div className="quiz-container">
                     <div className="question-header">
                       <span className="question-number">
-                        Question {currentQuestion + 1} of {currentPartData.questions.length}
+                        Question {currentQuestion + 1} of {quizQuestions.length}
                       </span>
                     </div>
                     <div className="question-text">
-                      <h3>{currentPartData.questions[currentQuestion].question}</h3>
+                      <h3>{activeQuizQuestion.question}</h3>
                     </div>
                     <div className="quiz-options">
-                      {currentPartData.questions[currentQuestion].options.map((option, index) => {
+                      {activeQuizQuestion.options.map((option, index) => {
                         const isSelected = selectedAnswer === option
-                        const isCorrect = option === currentPartData.questions[currentQuestion].correctAnswer
+                        const isCorrect = option === activeQuizQuestion.correctAnswer
                         const showFeedback = showAnswer
                         let optionClass = ''
                         
                         if (showFeedback) {
-                          // When feedback is shown, highlight correct answer in green
                           if (isCorrect) {
                             optionClass = 'correct'
                           } else if (isSelected && !isCorrect) {
-                            // Wrong selected answer shows in red
                             optionClass = 'incorrect'
                           }
                         } else if (isSelected) {
-                          // Before feedback, show selected state
                           optionClass = 'selected'
                         }
                         
@@ -709,7 +737,7 @@ const LessonDetail = () => {
                           <button
                             key={index}
                             className={`quiz-option ${optionClass}`}
-                            onClick={() => handleAnswerSelect(option)}
+                            onClick={() => handleAnswerSelect(option, activeQuizQuestion)}
                             disabled={showFeedback}
                           >
                             {option}
@@ -719,17 +747,36 @@ const LessonDetail = () => {
                     </div>
                     {showAnswer && (
                       <div className="quiz-feedback">
-                        {selectedAnswer === currentPartData.questions[currentQuestion].correctAnswer ? (
+                        {selectedAnswer === activeQuizQuestion.correctAnswer ? (
                           <p className="feedback-correct">✓ Correct! Well done!</p>
                         ) : (
-                          <p className="feedback-incorrect">✗ Incorrect. The correct answer is: <strong>{currentPartData.questions[currentQuestion].correctAnswer}</strong></p>
+                          <p className="feedback-incorrect">✗ Incorrect. The correct answer is: <strong>{activeQuizQuestion.correctAnswer}</strong></p>
                         )}
-                        {currentQuestion < currentPartData.questions.length - 1 && (
+                        {currentQuestion < quizQuestions.length - 1 && (
                           <button className="quiz-next-button" onClick={nextQuestion}>
                             Next Question →
                           </button>
                         )}
                       </div>
+                    )}
+                    {incorrectAnswers.length > 0 && (
+                      <details className="quiz-review-dropdown">
+                        <summary className="quiz-review-summary">
+                          Review mistakes ({incorrectAnswers.length})
+                        </summary>
+                        <ul className="quiz-review-list">
+                          {incorrectAnswers.map((mistake) => (
+                            <li key={mistake.id} className="quiz-review-item">
+                              <span className="quiz-review-word">{mistake.word}</span>
+                              <span className="quiz-review-detail">
+                                You chose <strong>{mistake.yourAnswer}</strong>
+                                {' · '}
+                                Correct: <strong>{mistake.correctAnswer}</strong>
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
                     )}
                   </div>
                 )}

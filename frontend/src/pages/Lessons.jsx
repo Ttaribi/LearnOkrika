@@ -70,14 +70,6 @@ const Lessons = () => {
           category: 'vocabulary'
         },
         {
-          id: 6,
-          title: 'Everyday Words and Tones',
-          level: 'beginner',
-          description: 'Learn common words from Okrika orthography and how tone changes meaning.',
-          duration: '20 minutes',
-          category: 'vocabulary'
-        },
-        {
           id: 7,
           title: 'Showing Time: Part 1',
           level: 'beginner',

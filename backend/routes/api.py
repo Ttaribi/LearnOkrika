@@ -74,14 +74,6 @@ def get_lessons():
             'category': 'vocabulary'
         },
         {
-            'id': 6,
-            'title': 'Everyday Words and Tones',
-            'level': 'beginner',
-            'description': 'Learn common words from Okrika orthography and how tone changes meaning.',
-            'duration': '20 minutes',
-            'category': 'vocabulary'
-        },
-        {
             'id': 7,
             'title': 'Showing Time: Part 1',
             'level': 'beginner',
@@ -369,7 +361,7 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Ì bìmé, mìébákà. Ñdé àní laa òkú wẹ?',
+                                        'okrika': 'Ì bìmé, mìébákà. Ñdé àní laa òkú?',
                                         'english': 'I am fine, thank you. How are you?'
                                     },
                                     {
@@ -449,19 +441,10 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person B',
-                                        'okrika': 'Ì bìmé, mìébákà',
-                                        'english': 'I am fine, thank you.'
-                                    },
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Í ḅásà!',
-                                        'english': 'Good morning!'
-                                    },
-                                    {
-                                        'speaker': 'Person B',
-                                        'okrika': 'Í ḅásà! Ñdè ànì là òkù?',
-                                        'english': 'Good morning! How are you?'
+                                        'okrika': 'Ìnìa bù dèìñ wárábe, mìébákà',
+                                        'english': 'They\'re doing fine, thank you.'
                                     }
+                                
                                 ]
                             },
                             {
@@ -474,18 +457,18 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person B',
-                                        'okrika': 'Mìébákà! Ñdè ànì là òkù?',
-                                        'english': 'Thank you! How are you?'
+                                        'okrika': 'Mìébákà! Í ómì?',
+                                        'english': 'Thank you! You there?'
                                     },
                                     {
                                         'speaker': 'Person A',
-                                        'okrika': 'Ì bìmé. Ñdè íyá fúró sìmè òkù?',
-                                        'english': 'I am fine. How is your family?'
+                                        'okrika': 'À ómì-e. Ñdè íyá fúró sìmè òkù?',
+                                        'english': 'I\'m here. How is your family?'
                                     },
                                     {
                                         'speaker': 'Person B',
                                         'okrika': 'Ì bù dèìñ mè, mìébákà!',
-                                        'english': "I'm alright, thank you!"
+                                        'english': "Íní ómì, thank you!"
                                     }
                                 ]
                             }
@@ -895,7 +878,7 @@ def get_lesson(lesson_id):
                                     },
                                     'pastParticiple': {
                                         'example': 'Ó bô sàm',
-                                        'exampleTranslation': 'He have come',
+                                        'exampleTranslation': 'He has come',
                                         'audioUrl': ''
                                     },
                                     'future': {
@@ -1282,8 +1265,9 @@ def get_lesson(lesson_id):
             'description': 'Learn vocabulary for family members and relationships',
             'duration': '25 minutes',
             'content': {
-                'sections': [
+                'parts': [
                     {
+                        'part': 1,
                         'title': 'Family Members',
                         'type': 'vocabulary',
                         'items': [
@@ -1314,6 +1298,7 @@ def get_lesson(lesson_id):
                         ]
                     },
                     {
+                        'part': 2,
                         'title': 'More Family Terms',
                         'type': 'phrases',
                         'items': [
@@ -1328,6 +1313,43 @@ def get_lesson(lesson_id):
                                 'english': 'Son/Daughter',
                                 'example': 'Example in Okrika',
                                 'exampleTranslation': 'Example translation'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 3,
+                        'title': 'Test Your Knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "Mímgbà" mean?',
+                                'correctAnswer': 'Mother',
+                                'options': ['Mother', 'Father', 'Child', 'Sibling']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "Dabo" mean?',
+                                'correctAnswer': 'Father',
+                                'options': ['Mother', 'Father', 'My mother', 'Brother/Sister']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "Nyingima" mean?',
+                                'correctAnswer': 'My mother',
+                                'options': ['My mother', 'My father', 'Mother', 'Father']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "Sibling" mean in this lesson?',
+                                'correctAnswer': 'Brother/Sister',
+                                'options': ['Brother/Sister', 'Son/Daughter', 'Mother', 'Father']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "Child" mean in this lesson?',
+                                'correctAnswer': 'Son/Daughter',
+                                'options': ['Son/Daughter', 'Brother/Sister', 'Mother', 'Father']
                             }
                         ]
                     }
@@ -1654,238 +1676,6 @@ def get_lesson(lesson_id):
                 ]
             }
         },
-        6: {
-            'id': 6,
-            'title': 'Everyday Words and Tones',
-            'level': 'beginner',
-            'description': 'Learn common words from Okrika orthography and how tone changes meaning.',
-            'duration': '20 minutes',
-            'content': {
-                'parts': [
-                    {
-                        'part': 1,
-                        'title': 'About tone in Okrika',
-                        'type': 'text',
-                        'content': 'In Okrika (Kịrịkị), tone is essential: the same spelling can mean different things when said with different pitch. For example, "so" with one tone means "sky" but with another tone "sọ" means "go away". This lesson uses words from the official Okrika orthography (Ngulube et al., NERDC). Practice listening for high and low pitch to tell words apart.'
-                    },
-                    {
-                        'part': 2,
-                        'title': 'Learn everyday words',
-                        'type': 'vocabulary',
-                        'items': [
-                            {
-                                'okrika': 'ịrị',
-                                'english': 'I, me',
-                                'singular': 'ịrị',
-                                'example': 'Ịrị éréméníbò-è',
-                                'exampleTranslation': 'I am a woman'
-                            },
-                            {
-                                'okrika': 'írí',
-                                'english': 'you (singular)',
-                                'singular': 'írí',
-                                'example': 'Írí ówúbọ-è',
-                                'exampleTranslation': 'You are a man'
-                            },
-                            {
-                                'okrika': 'ọ́ḅọ',
-                                'english': 'he',
-                                'singular': 'ọ́ḅọ',
-                                'example': 'Ọ́ḅọ deki mẹ',
-                                'exampleTranslation': 'He carried it'
-                            },
-                            {
-                                'okrika': 'ara',
-                                'english': 'her',
-                                'singular': 'ara',
-                                'example': 'Ara ịbịsịkị bọ mẹ',
-                                'exampleTranslation': 'She came early'
-                            },
-                            {
-                                'okrika': 'ẹrẹ',
-                                'english': 'name',
-                                'singular': 'ẹrẹ',
-                                'example': 'Ẹrẹ ịyà ànì Dede',
-                                'exampleTranslation': 'My name is Dede'
-                            },
-                            {
-                                'okrika': 'ere',
-                                'english': 'female',
-                                'singular': 'ere',
-                                'example': 'Ère ọwúbọ',
-                                'exampleTranslation': 'Female person'
-                            },
-                            {
-                                'okrika': 'pịrị',
-                                'english': 'give',
-                                'singular': 'pịrị',
-                                'example': 'Pịrị mí kana',
-                                'exampleTranslation': 'Give me the basket'
-                            },
-                            {
-                                'okrika': 'piri',
-                                'english': 'forest',
-                                'singular': 'piri',
-                                'example': 'Wa kiri piri',
-                                'exampleTranslation': 'We went to the forest'
-                            },
-                            {
-                                'okrika': 'tọrụ',
-                                'english': 'face',
-                                'singular': 'tọrụ',
-                                'example': 'Tọrụ ịyà bọ gbolu',
-                                'exampleTranslation': 'Your face is fine'
-                            },
-                            {
-                                'okrika': 'chiri',
-                                'english': 'market',
-                                'singular': 'chiri',
-                                'example': 'A so chiri',
-                                'exampleTranslation': 'She went to the market'
-                            },
-                            {
-                                'okrika': 'gịn',
-                                'english': 'write',
-                                'singular': 'gịn',
-                                'example': 'Ịrị gịn ẹrẹ',
-                                'exampleTranslation': 'I write (my) name'
-                            },
-                            {
-                                'okrika': 'kana',
-                                'english': 'basket',
-                                'singular': 'kana',
-                                'example': 'Deki kana',
-                                'exampleTranslation': 'Carry the basket'
-                            },
-                            {
-                                'okrika': 'nemi',
-                                'english': 'wisdom, know',
-                                'singular': 'nemi',
-                                'example': 'Ọ́ḅọ nemi',
-                                'exampleTranslation': 'He knows'
-                            },
-                            {
-                                'okrika': 'deki',
-                                'english': 'carry',
-                                'singular': 'deki',
-                                'example': 'Ọ deki mẹ',
-                                'exampleTranslation': 'He carried it'
-                            },
-                            {
-                                'okrika': 'bô',
-                                'english': 'come',
-                                'singular': 'bô',
-                                'example': 'A bô mẹ',
-                                'exampleTranslation': 'I came'
-                            },
-                            {
-                                'okrika': 'so',
-                                'english': 'sky',
-                                'singular': 'so',
-                                'example': 'So bọ dein',
-                                'exampleTranslation': 'The sky is peaceful'
-                            },
-                            {
-                                'okrika': 'sọ',
-                                'english': 'go away',
-                                'singular': 'sọ',
-                                'example': 'Sọ ọnịa',
-                                'exampleTranslation': 'Go away now'
-                            },
-                            {
-                                'okrika': 'minemgba',
-                                'english': 'all of us',
-                                'singular': 'minemgba',
-                                'example': 'Minemgba bô',
-                                'exampleTranslation': 'All of us came'
-                            },
-                            {
-                                'okrika': 'sẹniḅọ',
-                                'english': 'elder',
-                                'singular': 'sẹniḅọ',
-                                'example': 'Sẹniḅọ ịyà',
-                                'exampleTranslation': 'Your elder'
-                            }
-                        ]
-                    },
-                    {
-                        'part': 3,
-                        'title': 'Test your knowledge',
-                        'type': 'quiz',
-                        'questions': [
-                            {
-                                'id': 1,
-                                'question': 'What does "ịrị" mean?',
-                                'correctAnswer': 'I, me',
-                                'options': ['I, me', 'you', 'he', 'her']
-                            },
-                            {
-                                'id': 2,
-                                'question': 'What does "chiri" mean?',
-                                'correctAnswer': 'market',
-                                'options': ['forest', 'market', 'basket', 'name']
-                            },
-                            {
-                                'id': 3,
-                                'question': 'What does "pịrị" mean?',
-                                'correctAnswer': 'give',
-                                'options': ['give', 'carry', 'come', 'go away']
-                            },
-                            {
-                                'id': 4,
-                                'question': 'In Okrika, "so" can mean "sky". What does "sọ" (different tone) mean?',
-                                'correctAnswer': 'go away',
-                                'options': ['sky', 'come', 'go away', 'wisdom']
-                            },
-                            {
-                                'id': 5,
-                                'question': 'What does "deki" mean?',
-                                'correctAnswer': 'carry',
-                                'options': ['give', 'carry', 'write', 'know']
-                            },
-                            {
-                                'id': 6,
-                                'question': 'What does "sẹniḅọ" mean?',
-                                'correctAnswer': 'elder',
-                                'options': ['elder', 'female', 'name', 'basket']
-                            }
-                        ]
-                    },
-                    {
-                        'part': 4,
-                        'title': 'Short dialogue',
-                        'type': 'dialogue',
-                        'dialogues': [
-                            {
-                                'title': 'At the market',
-                                'exchanges': [
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Írí bô chiri?',
-                                        'english': 'Did you come to the market?'
-                                    },
-                                    {
-                                        'speaker': 'Person B',
-                                        'okrika': 'Ììn, ịrị bô mẹ. Pịrị mí kana.',
-                                        'english': 'Yes, I came. Give me the basket.'
-                                    },
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Mí ẹrẹ ịyà ànì?',
-                                        'english': 'What is your name?'
-                                    },
-                                    {
-                                        'speaker': 'Person B',
-                                        'okrika': 'Ẹrẹ ịyà ànì Dede.',
-                                        'english': 'My name is Dede.'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
         7: {
             'id': 7,
             'title': 'Showing Time: Part 1',
@@ -2002,6 +1792,61 @@ def get_lesson(lesson_id):
                                 'definition': 'Twelve o\'clock in the day; midday',
                                 'example': '',
                                 'exampleTranslation': ''
+                            }
+                        ]
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Test Your Knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "míókù" mean?',
+                                'correctAnswer': 'now; this moment',
+                                'options': ['now; this moment', 'today', 'yesterday', 'tomorrow']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "mímgbà" mean?',
+                                'correctAnswer': 'today',
+                                'options': ['today', 'yesterday', 'tomorrow', 'never']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "bịá" mean?',
+                                'correctAnswer': 'yesterday',
+                                'options': ['yesterday', 'tomorrow', 'today', 'now; this moment']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "bá" mean?',
+                                'correctAnswer': 'tomorrow',
+                                'options': ['tomorrow', 'yesterday', 'today', 'forever']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "kélédīkī" mean?',
+                                'correctAnswer': 'afterwards; sometime later',
+                                'options': ['afterwards; sometime later', 'now; this moment', 'never', 'while']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "N̄gịsị̀" mean?',
+                                'correctAnswer': 'never',
+                                'options': ['never', 'forever', 'every time', 'noon']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "gbásó" mean?',
+                                'correctAnswer': 'forever',
+                                'options': ['forever', 'never', 'midnight', 'noon']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "Ótókú" mean?',
+                                'correctAnswer': 'noon',
+                                'options': ['noon', 'midnight', 'today', 'yesterday']
                             }
                         ]
                     }
@@ -2134,6 +1979,61 @@ def get_lesson(lesson_id):
                                 'exampleTranslation': ''
                             }
                         ]
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Test Your Knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "Dị́ñ" mean?',
+                                'correctAnswer': 'night',
+                                'options': ['night', 'day time', 'early morning', 'daily']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "Básó" mean?',
+                                'correctAnswer': 'early morning',
+                                'options': ['early morning', 'night', 'day after tomorrow', 'sometimes']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "Bé réñ-béré-éné" mean?',
+                                'correctAnswer': 'day before yesterday',
+                                'options': ['day before yesterday', 'day after tomorrow', 'three days ago', 'every day']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "Bá bọ́rọ́ bé réñ-béré-éné" mean?',
+                                'correctAnswer': 'day after tomorrow',
+                                'options': ['day after tomorrow', 'day before yesterday', 'three days ago', 'immediately']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "Éné tíḅì" mean?',
+                                'correctAnswer': 'daily',
+                                'options': ['daily', 'sometimes', 'regularly', 'most times']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "Dàsìkì" mean?',
+                                'correctAnswer': 'sometimes',
+                                'options': ['sometimes', 'daily', 'immediately', 'never']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "Sịkị fámá ká bù" mean?',
+                                'correctAnswer': 'immediately',
+                                'options': ['immediately', 'delay', 'regularly', 'most times']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "Súsú bẹ́-ẹ́né" mean?',
+                                'correctAnswer': 'three days ago',
+                                'options': ['three days ago', 'day before yesterday', 'day after tomorrow', 'every day']
+                            }
+                        ]
                     }
                 ]
             }
@@ -2164,15 +2064,15 @@ def get_lesson(lesson_id):
                                 'english': 'when',
                                 'partOfSpeech': 'pronoun',
                                 'definition': 'Asking about time',
-                                'example': 'Ñdè sịkị í bô?',
+                                'example': 'Ñdè sịkị í bô bìà?',
                                 'exampleTranslation': 'When are you coming?'
                             },
                             {
-                                'okrika': 'ñdè bọ̀',
+                                'okrika': 'túbọ̀',
                                 'english': 'who',
                                 'partOfSpeech': 'pronoun',
                                 'definition': 'Asking about a person',
-                                'example': 'Ñdè bọ̀ ọ́ wú?',
+                                'example': 'Àní túbọ̀?',
                                 'exampleTranslation': 'Who is that?'
                             },
                             {
@@ -2180,15 +2080,15 @@ def get_lesson(lesson_id):
                                 'english': 'whom',
                                 'partOfSpeech': 'pronoun',
                                 'definition': 'Asking about which person (object)',
-                                'example': 'Àṇị̀ bọ̀ mị̀ í kéréní?',
-                                'exampleTranslation': 'Whom did you greet?'
+                                'example': '',
+                                'exampleTranslation': ''
                             },
                             {
                                 'okrika': 'chèyè',
                                 'english': 'what',
                                 'partOfSpeech': 'pronoun',
                                 'definition': 'Asking about a thing or action',
-                                'example': 'Chèyè í sọ?',
+                                'example': 'Chèyè í nwōñ bèé?',
                                 'exampleTranslation': 'What did you say?'
                             },
                             {
@@ -2198,6 +2098,49 @@ def get_lesson(lesson_id):
                                 'definition': 'Asking about an event or occurrence',
                                 'example': 'Chèyè pàkà?',
                                 'exampleTranslation': 'What happened?'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Test Your Knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "ñdèjù" mean?',
+                                'correctAnswer': 'where',
+                                'options': ['where', 'when', 'who', 'what']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "ñdè sịkị" mean?',
+                                'correctAnswer': 'when',
+                                'options': ['when', 'where', 'who', 'whom']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "ñdè bọ̀" mean?',
+                                'correctAnswer': 'who',
+                                'options': ['who', 'whom', 'what', 'where']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "àṇị̀ bọ̀ mị̀" mean?',
+                                'correctAnswer': 'whom',
+                                'options': ['whom', 'who', 'what', 'where']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "chèyè" mean?',
+                                'correctAnswer': 'what',
+                                'options': ['what', 'who', 'where', 'when']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "chèyè pàkà" mean?',
+                                'correctAnswer': 'what happened',
+                                'options': ['what happened', 'what', 'where', 'when']
                             }
                         ]
                     }
