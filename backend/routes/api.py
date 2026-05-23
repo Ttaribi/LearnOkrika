@@ -467,8 +467,8 @@ def get_lesson(lesson_id):
                                     },
                                     {
                                         'speaker': 'Person B',
-                                        'okrika': 'Ì bù dèìñ mè, mìébákà!',
-                                        'english': "Íní ómì, thank you!"
+                                        'okrika': 'Íní ómì, mìébákà!',
+                                        'english': "They\'re there, thank you!"
                                     }
                                 ]
                             }
