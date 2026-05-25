@@ -2413,11 +2413,11 @@ def get_lesson(lesson_id):
                             },
                             {
                                 'okrika': 'nà',
-                                'english': 'and',
+                                'english': 'and,that',
                                 'partOfSpeech': 'conjunction',
                                 'definition': 'Joins two words, phrases, or clauses together',
-                                'example': 'Tìtì mà á pékéré mè nà á mùñ Káínè',
-                                'exampleTranslation': 'Titi answered her and said she was going to Kaine'
+                                'example': 'Priye mà á pékéré mè nà á mùñ Káínè nà Mitchell diki bia',
+                                'exampleTranslation': 'Priye answered her and said she was going to see Kaine and Mitchell'
                             }
                         ]
                     },
