@@ -92,6 +92,14 @@ const Lessons = () => {
           description: 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
           duration: '15 minutes',
           category: 'vocabulary'
+        },
+        {
+          id: 10,
+          title: 'Connector Words',
+          level: 'beginner',
+          description: 'Learn words that link ideas in Okrika — because, also, while, and more.',
+          duration: '15 minutes',
+          category: 'grammar'
         }
       ])
     } finally {
@@ -141,9 +149,6 @@ const Lessons = () => {
 
                 {/* Lesson card */}
                 <div className="path-card">
-                  <div className="path-card-top">
-                    <span className={`path-level ${lesson.level}`}>{lesson.level}</span>
-                  </div>
                   <h3>{lesson.title}</h3>
                   <p>{lesson.description}</p>
                   <button className="path-btn">

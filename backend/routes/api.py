@@ -96,6 +96,14 @@ def get_lessons():
             'description': 'Learn how to ask questions in Okrika with who, what, when, where, and whom.',
             'duration': '15 minutes',
             'category': 'vocabulary'
+        },
+        {
+            'id': 10,
+            'title': 'Connector Words',
+            'level': 'beginner',
+            'description': 'Learn words that link ideas in Okrika — because, also, while, and more.',
+            'duration': '15 minutes',
+            'category': 'grammar'
         }
     ]
     
@@ -843,7 +851,7 @@ def get_lesson(lesson_id):
             'id': 3,
             'title': 'Common Verbs',
             'level': 'beginner',
-            'description': 'Learn everyday action verbs in Okrika: jump, run, sit, walk, read, write, listen, speak and more.',
+            'description': 'Learn everyday action verbs in Okrika: jump, run, sit, walk, read, write, listen, hear, understand, speak and more.',
             'duration': '25 minutes',
             'content': {
                 'parts': [
@@ -914,6 +922,131 @@ def get_lesson(lesson_id):
                                     'future': {
                                         'example': 'Íní múñ bìà',
                                         'exampleTranslation': 'They will come',
+                                        'audioUrl': ''
+                                    }
+                                }
+                            },
+                            {
+                                'okrika': 'kàínbó',
+                                'english': 'to understand',
+                                'partOfSpeech': 'verb',
+                                'definition': 'Perceive the intended meaning of (words, a language, or speaker)',
+                                'example': 'Í kàínbó?',
+                                'exampleTranslation': 'Do you understand?',
+                                'audioUrl': '',
+                                'exampleAudioUrl': '',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'À kàínbó àbè',
+                                        'exampleTranslation': 'I am understanding',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À kàínbó mè',
+                                        'exampleTranslation': 'I understood',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó kàínbó sàm',
+                                        'exampleTranslation': 'He has understood',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní kàínbó bìà',
+                                        'exampleTranslation': 'They will understand',
+                                        'audioUrl': ''
+                                    }
+                                }
+                            },
+                            {
+                                'okrika': 'pókī',
+                                'english': 'to listen',
+                                'partOfSpeech': 'verb',
+                                'example': 'Ị́ pókī',
+                                'exampleTranslation': 'You listen',
+                                'audioUrl': '',
+                                'exampleAudioUrl': '',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'Í pókī àbè',
+                                        'exampleTranslation': 'You are listening',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À pókī mè',
+                                        'exampleTranslation': 'I listened',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó pókī sàm',
+                                        'exampleTranslation': 'He has listened',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní pókī bìà',
+                                        'exampleTranslation': 'They will listen',
+                                        'audioUrl': ''
+                                    }
+                                }
+                            },
+                            {
+                                'okrika': 'nàa',
+                                'english': 'to hear',
+                                'partOfSpeech': 'verb',
+                                'example': 'Ị́ nàa',
+                                'exampleTranslation': 'You hear',
+                                'audioUrl': '',
+                                'exampleAudioUrl': '',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'Í nàa àbè',
+                                        'exampleTranslation': 'You are hearing',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À nàa mè',
+                                        'exampleTranslation': 'I heard',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó nàa sàm',
+                                        'exampleTranslation': 'He has heard',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní nàa bìà',
+                                        'exampleTranslation': 'They will hear',
+                                        'audioUrl': ''
+                                    }
+                                }
+                            },
+                            {
+                                'okrika': 'ókúẹín',
+                                'english': 'to talk or speak',
+                                'partOfSpeech': 'verb',
+                                'example': 'Ị́ ókúẹín',
+                                'exampleTranslation': 'You talk',
+                                'audioUrl': '',
+                                'exampleAudioUrl': '',
+                                'conjugations': {
+                                    'presentContinuous': {
+                                        'example': 'Í ókúẹín àbè',
+                                        'exampleTranslation': 'You are talking',
+                                        'audioUrl': ''
+                                    },
+                                    'pastTense': {
+                                        'example': 'À ókúẹín mè',
+                                        'exampleTranslation': 'I talked',
+                                        'audioUrl': ''
+                                    },
+                                    'pastParticiple': {
+                                        'example': 'Ó ókúẹín sàm',
+                                        'exampleTranslation': 'He has talked',
+                                        'audioUrl': ''
+                                    },
+                                    'future': {
+                                        'example': 'Íní ókúẹín bìà',
+                                        'exampleTranslation': 'They will talk',
                                         'audioUrl': ''
                                     }
                                 }
@@ -1029,13 +1162,6 @@ def get_lesson(lesson_id):
                                 'singular': 'gị̀ẹ́ñ',
                                 'example': 'Ọ gị̀ẹ́ñ',
                                 'exampleTranslation': 'He/she writes'
-                            },
-                            {
-                                'okrika': 'pókì',
-                                'english': 'listen',
-                                'singular': 'pókì',
-                                'example': 'Ị́ pókì',
-                                'exampleTranslation': 'You listen'
                             },
                             {
                                 'okrika': 'ọ̣́kwẹ́ị́ñ',
@@ -1196,62 +1322,33 @@ def get_lesson(lesson_id):
                             },
                             {
                                 'id': 19,
-                                'question': 'What does "pókì" mean?',
-                                'correctAnswer': 'listen',
-                                'options': ['listen', 'speak', 'read', 'write']
+                                'question': 'What does "pókī" mean?',
+                                'correctAnswer': 'to listen',
+                                'options': ['to listen', 'to hear', 'to understand', 'to speak']
                             },
                             {
                                 'id': 20,
                                 'question': 'What does "ọ̣́kwẹ́ị́ñ" mean?',
                                 'correctAnswer': 'speak',
-                                'options': ['speak', 'listen', 'eat', 'read']
-                            }
-                        ]
-                    },
-                    {
-                        'part': 7,
-                        'title': 'Short dialogue',
-                        'type': 'dialogue',
-                        'dialogues': [
-                            {
-                                'title': 'At home',
-                                'exchanges': [
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Kpọ́njị̀ símè.',
-                                        'english': 'Sit down.'
-                                    },
-                                    {
-                                        'speaker': 'Person B',
-                                        'okrika': 'Mìébákà. Ị́ góō?',
-                                        'english': 'Thank you. Are you reading?'
-                                    },
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Ììn. Ị́ pókì.',
-                                        'english': 'Yes. You listen.'
-                                    }
-                                ]
+                                'options': ['speak', 'to listen', 'to hear', 'read']
                             },
                             {
-                                'title': 'Going out',
-                                'exchanges': [
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Bẹ́ é wẹ́ñgị́.',
-                                        'english': 'Walk fast.'
-                                    },
-                                    {
-                                        'speaker': 'Person B',
-                                        'okrika': 'Ììn.',
-                                        'english': 'Yes.'
-                                    },
-                                    {
-                                        'speaker': 'Person A',
-                                        'okrika': 'Ị́ñọ́ sárá.',
-                                        'english': 'Rest.'
-                                    }
-                                ]
+                                'id': 21,
+                                'question': 'What does "kàínbó" mean?',
+                                'correctAnswer': 'to understand',
+                                'options': ['to understand', 'to hear', 'to listen', 'to speak']
+                            },
+                            {
+                                'id': 22,
+                                'question': 'What does "nàa" mean?',
+                                'correctAnswer': 'to hear',
+                                'options': ['to hear', 'to listen', 'to understand', 'to speak']
+                            },
+                            {
+                                'id': 23,
+                                'question': 'What does "ókúẹín" mean?',
+                                'correctAnswer': 'to talk or speak',
+                                'options': ['to talk or speak', 'to hear', 'to listen', 'to understand']
                             }
                         ]
                     }
@@ -1272,47 +1369,71 @@ def get_lesson(lesson_id):
                         'type': 'vocabulary',
                         'items': [
                             {
-                                'okrika': 'Mímgbà',
+                                'okrika': 'ñyèñgìbọ̀',
                                 'english': 'Mother',
-                                'example': 'Mímgbà ḅó ḅírí',
-                                'exampleTranslation': 'Mother is fine'
+                                'example': '',
+                                'exampleTranslation': ''
                             },
                             {
-                                'okrika': 'Dabo',
+                                'okrika': 'dàbọ̀',
                                 'english': 'Father',
-                                'example': 'Dabo ḅírí',
-                                'exampleTranslation': 'Father is fine'
+                                'example': '',
+                                'exampleTranslation': ''
                             },
                             {
-                                'okrika': 'Nyingima',
-                                'english': 'My mother',
-                                'example': 'Nyingima íḅòsà',
-                                'exampleTranslation': 'Welcome mother'
+                                'okrika': 'ìmbìrè',
+                                'english': 'Brother',
+                                'example': '',
+                                'exampleTranslation': ''
                             },
                             {
-                                'okrika': 'Dabo',
-                                'english': 'My father',
-                                'example': 'Dabo, Àri Í kéréní mè',
-                                'exampleTranslation': 'I greet you father'
+                                'okrika': 'ịmbụ̀rà',
+                                'english': 'Sister',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'ówú tọ́kụ̀',
+                                'english': 'Son',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'éréméní tọ̀kù',
+                                'english': 'Daughter',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'tàā',
+                                'english': 'Wife',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'dèbọ̀',
+                                'english': 'Husband',
+                                'example': '',
+                                'exampleTranslation': ''
                             }
                         ]
                     },
                     {
                         'part': 2,
                         'title': 'More Family Terms',
-                        'type': 'phrases',
+                        'type': 'vocabulary',
                         'items': [
                             {
-                                'okrika': 'Sibling',
-                                'english': 'Brother/Sister',
-                                'example': 'Example in Okrika',
-                                'exampleTranslation': 'Example translation'
+                                'okrika': 'òpùdàbọ̀',
+                                'english': 'Grandfather',
+                                'example': '',
+                                'exampleTranslation': ''
                             },
                             {
-                                'okrika': 'Child',
-                                'english': 'Son/Daughter',
-                                'example': 'Example in Okrika',
-                                'exampleTranslation': 'Example translation'
+                                'okrika': 'òpùnyēǹgíbọ̀',
+                                'english': 'Grandmother',
+                                'example': '',
+                                'exampleTranslation': ''
                             }
                         ]
                     },
@@ -1323,33 +1444,63 @@ def get_lesson(lesson_id):
                         'questions': [
                             {
                                 'id': 1,
-                                'question': 'What does "Mímgbà" mean?',
+                                'question': 'What does "ñyèñgìbọ̀" mean?',
                                 'correctAnswer': 'Mother',
-                                'options': ['Mother', 'Father', 'Child', 'Sibling']
+                                'options': ['Mother', 'Father', 'Grandmother', 'Sister']
                             },
                             {
                                 'id': 2,
-                                'question': 'What does "Dabo" mean?',
+                                'question': 'What does "dàbọ̀" mean?',
                                 'correctAnswer': 'Father',
-                                'options': ['Mother', 'Father', 'My mother', 'Brother/Sister']
+                                'options': ['Father', 'Mother', 'Grandfather', 'Son']
                             },
                             {
                                 'id': 3,
-                                'question': 'What does "Nyingima" mean?',
-                                'correctAnswer': 'My mother',
-                                'options': ['My mother', 'My father', 'Mother', 'Father']
+                                'question': 'What does "ìmbìrè" mean?',
+                                'correctAnswer': 'Brother',
+                                'options': ['Brother', 'Sister', 'Son', 'Daughter']
                             },
                             {
                                 'id': 4,
-                                'question': 'What does "Sibling" mean in this lesson?',
-                                'correctAnswer': 'Brother/Sister',
-                                'options': ['Brother/Sister', 'Son/Daughter', 'Mother', 'Father']
+                                'question': 'What does "ịmbụ̀rà" mean?',
+                                'correctAnswer': 'Sister',
+                                'options': ['Sister', 'Brother', 'Wife', 'Mother']
                             },
                             {
                                 'id': 5,
-                                'question': 'What does "Child" mean in this lesson?',
-                                'correctAnswer': 'Son/Daughter',
-                                'options': ['Son/Daughter', 'Brother/Sister', 'Mother', 'Father']
+                                'question': 'What does "ówú tọ́kụ̀" mean?',
+                                'correctAnswer': 'Son',
+                                'options': ['Son', 'Daughter', 'Brother', 'Father']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "éréméní tọ̀kù" mean?',
+                                'correctAnswer': 'Daughter',
+                                'options': ['Daughter', 'Son', 'Sister', 'Wife']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "tàā" mean?',
+                                'correctAnswer': 'Wife',
+                                'options': ['Wife', 'Husband', 'Mother', 'Sister']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "dèbọ̀" mean?',
+                                'correctAnswer': 'Husband',
+                                'options': ['Husband', 'Wife', 'Father', 'Son']
+                            },
+                            {
+                                'id': 9,
+                                'question': 'What does "òpùdàbọ̀" mean?',
+                                'correctAnswer': 'Grandfather',
+                                'options': ['Grandfather', 'Grandmother', 'Father', 'Mother']
+                            },
+                            {
+                                'id': 10,
+                                'question': 'What does "òpùnyēǹgíbọ̀" mean?',
+                                'correctAnswer': 'Grandmother',
+                                'options': ['Grandmother', 'Grandfather', 'Mother', 'Wife']
                             }
                         ]
                     }
@@ -2098,6 +2249,22 @@ def get_lesson(lesson_id):
                                 'definition': 'Asking about an event or occurrence',
                                 'example': 'Chèyè pàkà?',
                                 'exampleTranslation': 'What happened?'
+                            },
+                            {
+                                'okrika': 'ndàyê',
+                                'english': 'how many things',
+                                'partOfSpeech': 'interrogative',
+                                'definition': 'Asking about the quantity of things',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'ndàìgbíkì',
+                                'english': 'how much money',
+                                'partOfSpeech': 'interrogative',
+                                'definition': 'Asking about an amount of money',
+                                'example': '',
+                                'exampleTranslation': ''
                             }
                         ]
                     },
@@ -2141,6 +2308,183 @@ def get_lesson(lesson_id):
                                 'question': 'What does "chèyè pàkà" mean?',
                                 'correctAnswer': 'what happened',
                                 'options': ['what happened', 'what', 'where', 'when']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "ndàyê" mean?',
+                                'correctAnswer': 'how many things',
+                                'options': ['how many things', 'how much money', 'what', 'where']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "ndàìgbíkì" mean?',
+                                'correctAnswer': 'how much money',
+                                'options': ['how much money', 'how many things', 'when', 'who']
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        10: {
+            'id': 10,
+            'title': 'Connector Words',
+            'level': 'beginner',
+            'description': 'Learn words that link ideas in Okrika — because, also, while, and more.',
+            'duration': '15 minutes',
+            'content': {
+                'parts': [
+                    {
+                        'part': 1,
+                        'title': 'Learn connector words',
+                        'type': 'vocabulary',
+                        'items': [
+                            {
+                                'okrika': 'ànìàtíbí',
+                                'english': 'because',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Gives a reason or cause',
+                                'example': 'À chik-fi-a muñ bìà ànìàtíbí fị́yè ị̀ tàrị̀ àḅẹ̀',
+                                'exampleTranslation': 'I will go to chik-fil-a because I\'m hungry'
+                            },
+                            {
+                                'okrika': 'soni',
+                                'english': 'also; too',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'Adds another idea or includes something more',
+                                'example': '',
+                                'exampleTranslation': ''
+                            },
+                            {
+                                'okrika': 'sìméògbò',
+                                'english': 'while',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Links two actions happening at the same time',
+                                'example': 'Sìméògbò í ómì, bô yéfí',
+                                'exampleTranslation': 'While you are here, come and eat'
+                            },
+                            {
+                                'okrika': 'kà',
+                                'english': 'and; what about',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Connects ideas or turns the question back to someone',
+                                'example': 'Í ḅásà. Ìyà èrè ànì Tonye. Írí ka?',
+                                'exampleTranslation': 'Good morning. My name is Tonye. And you?'
+                            },
+                            {
+                                'okrika': 'ànì',
+                                'english': 'that',
+                                'partOfSpeech': 'pronoun',
+                                'definition': 'Points to or identifies something already mentioned',
+                                'example': 'Ànì ìbì mè',
+                                'exampleTranslation': 'That is good'
+                            },
+                            {
+                                'okrika': 'ììñ',
+                                'english': 'yes',
+                                'partOfSpeech': 'particle',
+                                'definition': 'Affirms or agrees before continuing a thought',
+                                'example': 'Ììñ, À bùkùró mà bìà',
+                                'exampleTranslation': 'Yes, I will try hard'
+                            },
+                            {
+                                'okrika': 'Ọ̀kùmà',
+                                'english': 'but',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Used to introduce a statement contrasting with a previous statement',
+                                'example': 'Ọ̀kùmà, ị̀rị̀ yèḍìyè bọ̀-ẹ̀',
+                                'exampleTranslation': 'But, I am a teacher.'
+                            },
+                            {
+                                'okrika': 'nwòfá/némíkásè',
+                                'english': 'if, whether',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Introduces a conditional clause',
+                                'example': 'Nwòfá í múñ, à mónō bìà',
+                                'exampleTranslation': 'If you go, I will sleep'
+                            },
+                            {
+                                'okrika': 'mị̀ẹ̀ sè',
+                                'english': 'so that',
+                                'partOfSpeech': 'adverb',
+                                'definition': 'In order that',
+                                'example': 'Àníjú kpọ̀njị́sìmé mị̀ẹ̀ sè ó ọrí bìà',
+                                'exampleTranslation': 'Sit there so that he will see you'
+                            },
+                            {
+                                'okrika': 'nà',
+                                'english': 'and',
+                                'partOfSpeech': 'conjunction',
+                                'definition': 'Joins two words, phrases, or clauses together',
+                                'example': 'Tìtì mà á pékéré mè nà á mùñ Káínè',
+                                'exampleTranslation': 'Titi answered her and said she was going to Kaine'
+                            }
+                        ]
+                    },
+                    {
+                        'part': 2,
+                        'title': 'Test Your Knowledge',
+                        'type': 'quiz',
+                        'questions': [
+                            {
+                                'id': 1,
+                                'question': 'What does "ànìàtíbí" mean?',
+                                'correctAnswer': 'because',
+                                'options': ['because', 'also', 'while', 'that']
+                            },
+                            {
+                                'id': 2,
+                                'question': 'What does "soni" mean?',
+                                'correctAnswer': 'also; too',
+                                'options': ['also; too', 'because', 'yes', 'while']
+                            },
+                            {
+                                'id': 3,
+                                'question': 'What does "sìméògbò" mean?',
+                                'correctAnswer': 'while',
+                                'options': ['while', 'because', 'that', 'and; what about']
+                            },
+                            {
+                                'id': 4,
+                                'question': 'What does "kà" mean?',
+                                'correctAnswer': 'and; what about',
+                                'options': ['and; what about', 'because', 'yes', 'that']
+                            },
+                            {
+                                'id': 5,
+                                'question': 'What does "ànì" mean?',
+                                'correctAnswer': 'that',
+                                'options': ['that', 'because', 'also; too', 'while']
+                            },
+                            {
+                                'id': 6,
+                                'question': 'What does "ììñ" mean?',
+                                'correctAnswer': 'yes',
+                                'options': ['yes', 'no', 'because', 'and; what about']
+                            },
+                            {
+                                'id': 7,
+                                'question': 'What does "Ọ̀kùmà" mean?',
+                                'correctAnswer': 'but',
+                                'options': ['but', 'if, whether', 'so that', 'because']
+                            },
+                            {
+                                'id': 8,
+                                'question': 'What does "nwòfá" mean?',
+                                'correctAnswer': 'if, whether',
+                                'options': ['if, whether', 'but', 'so that', 'while']
+                            },
+                            {
+                                'id': 9,
+                                'question': 'What does "mị̀ẹ̀ sè" mean?',
+                                'correctAnswer': 'so that',
+                                'options': ['so that', 'but', 'if, whether', 'because']
+                            },
+                            {
+                                'id': 10,
+                                'question': 'What does "nà" mean?',
+                                'correctAnswer': 'and',
+                                'options': ['and', 'but', 'because', 'if, whether']
                             }
                         ]
                     }

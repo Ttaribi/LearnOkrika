@@ -34,14 +34,13 @@ function Auth() {
         if (signUpError) throw signUpError
       }
 
-      // Ensure we land on profile after auth completes.
       // If email confirmation is enabled, Supabase will not create a session until confirmed.
       const {
         data: { user },
       } = await supabase.auth.getUser()
 
       if (user) {
-        navigate('/profile')
+        navigate('/lessons')
       } else {
         setError('Check your email to confirm your account, then log in.')
       }

@@ -95,210 +95,77 @@
   margin-bottom: 2rem;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
 .section-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.5rem;
 }
 
-.section-header .section-title {
-  margin-bottom: 0;
-}
-
-.view-all-btn {
-  background: none;
-  border: none;
-  color: #6C63FF;
+.updates-intro {
+  color: var(--text-secondary);
   font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
-  transition: opacity 0.15s;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-.view-all-btn:hover {
-  opacity: 0.75;
-}
-
-/* ===== Continue Learning Card ===== */
-.continue-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid #E5A100;
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.continue-card:hover {
-  background: var(--bg-card-hover);
-  border-color: #E5A100;
-  border-left-color: #E5A100;
-}
-
-.continue-icon {
-  font-size: 2.25rem;
-  flex-shrink: 0;
-}
-
-.continue-info {
-  flex: 1;
-}
-
-.continue-info h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 0.15rem;
-}
-
-.continue-info > p {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-bottom: 0.6rem;
-}
-
-.continue-progress {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.continue-progress-bar {
-  flex: 1;
-  height: 6px;
-  background: var(--bg-primary);
-  border-radius: 3px;
-  overflow: hidden;
-  max-width: 180px;
-}
-
-.continue-progress-fill {
-  height: 100%;
-  background: #E5A100;
-  border-radius: 3px;
-  transition: width 0.3s ease;
-}
-
-.continue-progress-text {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-
-.continue-arrow {
-  font-size: 1.3rem;
-  color: #E5A100;
-  flex-shrink: 0;
-}
-
-/* ===== Featured Lessons ===== */
-.featured-grid {
+.updates-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.featured-card {
+.update-card {
+  width: 100%;
+  text-align: left;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
+  border-left: 4px solid #6C63FF;
   border-radius: 12px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.15rem 1.35rem;
   cursor: pointer;
   transition: all 0.15s ease;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+  font-family: inherit;
 }
 
-.featured-card:hover {
+.update-card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--primary-color);
+  border-color: rgba(108, 99, 255, 0.45);
+  transform: translateY(-1px);
 }
 
-.featured-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-  gap: 0.5rem;
-}
-
-.level-badge {
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.7rem;
+.update-date {
+  display: inline-block;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  color: #6C63FF;
+  margin-bottom: 0.35rem;
 }
 
-.level-badge.beginner {
-  background: rgba(29, 184, 154, 0.12);
-  color: var(--primary-color);
-}
-
-.level-badge.intermediate {
-  background: rgba(229, 161, 0, 0.12);
-  color: var(--secondary-color);
-}
-
-.level-badge.advanced {
-  background: rgba(217, 79, 79, 0.12);
-  color: var(--danger-color);
-}
-
-.duration {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-.featured-card h3 {
+.update-title {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.35rem;
   line-height: 1.3;
 }
 
-.featured-card p {
-  font-size: 0.85rem;
+.update-description {
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.4;
-  margin-bottom: 0;
-  flex: 1;
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
 }
 
-.featured-btn {
-  background: var(--primary-color);
-  border: none;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.featured-btn:hover {
-  background: var(--primary-hover);
-  transform: translateY(-1px);
+.update-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #6C63FF;
 }
 
 /* ===== About Card ===== */
@@ -356,16 +223,6 @@
 
   .welcome-graphic {
     display: none;
-  }
-
-  .featured-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .featured-btn {
-    width: 100%;
-    text-align: center;
   }
 
   .about-card {

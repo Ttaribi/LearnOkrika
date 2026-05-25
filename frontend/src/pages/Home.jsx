@@ -1,32 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.css'
 
+const UPDATES_AS_OF = 'May 25, 2026'
+
+const latestUpdates = [
+  {
+    date: UPDATES_AS_OF,
+    title: 'Family & Relationships refreshed',
+    description:
+      'Updated family vocabulary with Okrika terms for mother, father, grandparents, siblings, children, and spouse.',
+    lessonId: 4,
+  },
+  {
+    date: UPDATES_AS_OF,
+    title: 'New lesson: Connector Words',
+    description:
+      'Learn words that link ideas — because, but, if, while, and, and more — with examples and a quiz.',
+    lessonId: 10,
+  },
+  {
+    date: UPDATES_AS_OF,
+    title: 'Common Verbs expanded',
+    description:
+      'Added understand, listen, hear, and talk/speak with full tense conjugations (àbè, mè, sàm, bìà).',
+    lessonId: 3,
+  },
+  {
+    date: UPDATES_AS_OF,
+    title: 'Question Words updated',
+    description: 'Added how many things (ndàyê) and how much money (ndàìgbíkì) to the question words lesson.',
+    lessonId: 8,
+  },
+]
+
 function Home() {
   const navigate = useNavigate()
-  const [lessons, setLessons] = useState([])
-
-  useEffect(() => {
-    fetchLessons()
-  }, [])
-
-  const fetchLessons = async () => {
-    try {
-      const response = await fetch('/api/lessons')
-      const data = await response.json()
-      setLessons((data.lessons || []).slice(0, 3))
-    } catch (error) {
-      setLessons([
-        { id: 0, title: 'Introduction to Okrika', level: 'beginner', description: 'Get started with an introduction to the language.', duration: '10 minutes' },
-        { id: 1, title: 'Basic Greetings', level: 'beginner', description: 'Learn essential greetings in Okrika.', duration: '15 minutes' },
-        { id: 2, title: 'Pronouns', level: 'beginner', description: 'Learn personal pronouns in Okrika.', duration: '20 minutes' },
-      ])
-    }
-  }
 
   return (
     <div className="home-page">
-      {/* Welcome Banner */}
       <div className="welcome-banner">
         <div className="welcome-content">
           <div className="welcome-text">
@@ -45,54 +57,31 @@ function Home() {
         </div>
       </div>
 
-      {/* Continue Learning */}
       <div className="section">
-        <div className="continue-card" onClick={() => navigate('/lessons/0')}>
-          <div className="continue-icon">📚</div>
-          <div className="continue-info">
-            <h3>Continue Learning</h3>
-            <p>Introduction to Okrika</p>
-            <div className="continue-progress">
-              <div className="continue-progress-bar">
-                <div className="continue-progress-fill" style={{ width: '10%' }}></div>
-              </div>
-              <span className="continue-progress-text">Just started</span>
-            </div>
-          </div>
-          <div className="continue-arrow">→</div>
-        </div>
-      </div>
-
-      {/* Featured Lessons */}
-      <div className="section">
-        <div className="section-header">
-          <h2 className="section-title">Featured Lessons</h2>
-          <button className="view-all-btn" onClick={() => navigate('/lessons')}>
-            View all →
-          </button>
-        </div>
-        <div className="featured-grid">
-          {lessons.map((lesson, index) => (
-            <div
-              key={lesson.id}
-              className="featured-card"
-              onClick={() => navigate(`/lessons/${lesson.id}`)}
-            >
-              <div style={{ flex: 1 }}>
-                <div className="featured-card-top">
-                  <span className={`level-badge ${lesson.level}`}>{lesson.level}</span>
-                  <span className="duration">{lesson.duration}</span>
-                </div>
-                <h3>Lesson {index + 1}: {lesson.title}</h3>
-                <p>{lesson.description}</p>
-              </div>
-              <button className="featured-btn">Start →</button>
-            </div>
+        <h2 className="section-title">Latest Updates</h2>
+        <p className="updates-intro">
+          New lessons and vocabulary added as of {UPDATES_AS_OF}. Tap an update to jump straight to that lesson.
+        </p>
+        <ul className="updates-list">
+          {latestUpdates.map((update, index) => (
+            <li key={index}>
+              <button
+                type="button"
+                className="update-card"
+                onClick={() => update.lessonId != null && navigate(`/lessons/${update.lessonId}`)}
+              >
+                <span className="update-date">{update.date}</span>
+                <h3 className="update-title">{update.title}</h3>
+                <p className="update-description">{update.description}</p>
+                {update.lessonId != null && (
+                  <span className="update-link">View lesson →</span>
+                )}
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
-      {/* About Okrika */}
       <div className="section">
         <div className="about-card">
           <div className="about-card-icon">🌍</div>

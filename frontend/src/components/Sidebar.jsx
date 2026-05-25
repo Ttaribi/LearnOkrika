@@ -9,7 +9,6 @@ const Sidebar = () => {
     { path: '/', label: 'Home', icon: '🏠' },
     { path: '/lessons', label: 'Learn', icon: '📚' },
     { path: '/stories', label: 'Stories', icon: '💬' },
-    { path: '/profile', label: 'Profile', icon: '👤' },
   ]
 
   const isActive = (path) => {

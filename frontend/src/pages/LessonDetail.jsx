@@ -291,7 +291,37 @@ const LessonDetail = () => {
                 { okrika: 'ñdè bọ̀', english: 'who', partOfSpeech: 'pronoun', definition: 'Asking about a person', example: 'Ñdè bọ̀ ọ́ wú?', exampleTranslation: 'Who is that?' },
                 { okrika: 'àṇị̀ bọ̀ mị̀', english: 'whom', partOfSpeech: 'pronoun', definition: 'Asking about which person (object)', example: 'Àṇị̀ bọ̀ mị̀ í kéréní?', exampleTranslation: 'Whom did you greet?' },
                 { okrika: 'chèyè', english: 'what', partOfSpeech: 'pronoun', definition: 'Asking about a thing or action', example: 'Chèyè í sọ?', exampleTranslation: 'What did you say?' },
-                { okrika: 'chèyè pàkà', english: 'what happened', partOfSpeech: 'phrase', definition: 'Asking about an event or occurrence', example: 'Chèyè pàkà?', exampleTranslation: 'What happened?' }
+                { okrika: 'chèyè pàkà', english: 'what happened', partOfSpeech: 'phrase', definition: 'Asking about an event or occurrence', example: 'Chèyè pàkà?', exampleTranslation: 'What happened?' },
+                { okrika: 'ndàyê', english: 'how many things', partOfSpeech: 'interrogative', definition: 'Asking about the quantity of things', example: '', exampleTranslation: '' },
+                { okrika: 'ndàìgbíkì', english: 'how much money', partOfSpeech: 'interrogative', definition: 'Asking about an amount of money', example: '', exampleTranslation: '' }
+              ]
+            }
+          ]
+        }
+      },
+      10: {
+        id: 10,
+        title: 'Connector Words',
+        level: 'beginner',
+        description: 'Learn words that link ideas in Okrika — because, also, while, and more.',
+        duration: '15 minutes',
+        content: {
+          parts: [
+            {
+              part: 1,
+              title: 'Learn connector words',
+              type: 'vocabulary',
+              items: [
+                { okrika: 'ànìàtíbí', english: 'because', partOfSpeech: 'conjunction', definition: 'Gives a reason or cause', example: 'À chik-fi-a muñ bìà ànìàtíbí fị́yè ị̀ tàrị̀ àḅẹ̀', exampleTranslation: "I will go to chik-fil-a because I'm hungry" },
+                { okrika: 'soni', english: 'also; too', partOfSpeech: 'adverb', definition: 'Adds another idea or includes something more', example: '', exampleTranslation: '' },
+                { okrika: 'sìméògbò', english: 'while', partOfSpeech: 'conjunction', definition: 'Links two actions happening at the same time', example: 'Sìméògbò í ómì, bô yéfí', exampleTranslation: 'While you are here, come and eat' },
+                { okrika: 'kà', english: 'and; what about', partOfSpeech: 'conjunction', definition: 'Connects ideas or turns the question back to someone', example: 'Í ḅásà. Ìyà èrè ànì Tonye. Írí ka?', exampleTranslation: 'Good morning. My name is Tonye. And you?' },
+                { okrika: 'ànì', english: 'that', partOfSpeech: 'pronoun', definition: 'Points to or identifies something already mentioned', example: 'Ànì ìbì mè', exampleTranslation: 'That is good' },
+                { okrika: 'ììñ', english: 'yes', partOfSpeech: 'particle', definition: 'Affirms or agrees before continuing a thought', example: 'Ììñ, À bùkùró mà bìà', exampleTranslation: 'Yes, I will try hard' },
+                { okrika: 'Ọ̀kùmà', english: 'but', partOfSpeech: 'conjunction', definition: 'Used to introduce a statement contrasting with a previous statement', example: 'Ọ̀kùmà, ị̀rị̀ yèḍìyè bọ̀-ẹ̀', exampleTranslation: 'But, I am a teacher.' },
+                { okrika: 'nwòfá/némíkásè', english: 'if, whether', partOfSpeech: 'conjunction', definition: 'Introduces a conditional clause', example: 'Nwòfá í múñ, à mónō bìà', exampleTranslation: 'If you go, I will sleep' },
+                { okrika: 'mị̀ẹ̀ sè', english: 'so that', partOfSpeech: 'adverb', definition: 'In order that', example: 'Àníjú kpọ̀njị́sìmé mị̀ẹ̀ sè ó ọrí bìà', exampleTranslation: 'Sit there so that he will see you' },
+                { okrika: 'nà', english: 'and', partOfSpeech: 'conjunction', definition: 'Joins two words, phrases, or clauses together', example: 'Tìtì mà á pékéré mè nà á mùñ Káínè', exampleTranslation: 'Titi answered her and said she was going to Kaine' }
               ]
             }
           ]
@@ -438,7 +468,6 @@ const LessonDetail = () => {
               ← Back to Lessons
             </button>
             <div className="lesson-title-section">
-              <span className="lesson-badge">{lesson.level}</span>
               <h1>{lesson.title}</h1>
               <p className="lesson-description">{lesson.description}</p>
             </div>

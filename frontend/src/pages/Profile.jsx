@@ -184,7 +184,7 @@ function Profile() {
                   <div className="profile-lesson-details">
                     <span className="profile-lesson-title">{lesson.title}</span>
                     <span className="profile-lesson-meta">
-                      {lesson.level} · {lesson.duration}
+                      {lesson.duration}
                     </span>
                   </div>
                   <span className="profile-lesson-arrow">→</span>
