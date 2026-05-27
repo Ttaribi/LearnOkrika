@@ -170,6 +170,9 @@
   font-family: inherit;
   font-size: 0.85rem;
   opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .path-item:hover .path-btn {

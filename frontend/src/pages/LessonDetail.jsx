@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from 'lucide-react'
 import AudioPlayer from '../components/AudioPlayer'
 import { supabase } from '../lib/supabaseClient'
 import './LessonDetail.css'
+
+const DropdownChevron = ({ expanded }) =>
+  expanded ? <ChevronDown size={16} aria-hidden /> : <ChevronRight size={16} aria-hidden />
 
 function shuffleArray(items) {
   const copy = [...items]
@@ -465,7 +476,8 @@ const LessonDetail = () => {
         <div className="lesson-detail-container">
           <div className="lesson-header">
             <button className="back-button" onClick={() => navigate('/lessons')}>
-              ← Back to Lessons
+              <ChevronLeft size={18} aria-hidden />
+              Back to Lessons
             </button>
             <div className="lesson-title-section">
               <h1>{lesson.title}</h1>
@@ -596,7 +608,7 @@ const LessonDetail = () => {
                                 >
                                   <span className="conjugation-label">Present Continuous:</span>
                                   <span className="dropdown-arrow">
-                                    {expandedConjugations[`${index}-presentContinuous`] ? '▼' : '▶'}
+                                    <DropdownChevron expanded={expandedConjugations[`${index}-presentContinuous`]} />
                                   </span>
                                 </button>
                                 {expandedConjugations[`${index}-presentContinuous`] && (
@@ -631,7 +643,7 @@ const LessonDetail = () => {
                                 >
                                   <span className="conjugation-label">Past Tense:</span>
                                   <span className="dropdown-arrow">
-                                    {expandedConjugations[`${index}-pastTense`] ? '▼' : '▶'}
+                                    <DropdownChevron expanded={expandedConjugations[`${index}-pastTense`]} />
                                   </span>
                                 </button>
                                 {expandedConjugations[`${index}-pastTense`] && (
@@ -666,7 +678,7 @@ const LessonDetail = () => {
                                 >
                                   <span className="conjugation-label">Past Participle:</span>
                                   <span className="dropdown-arrow">
-                                    {expandedConjugations[`${index}-pastParticiple`] ? '▼' : '▶'}
+                                    <DropdownChevron expanded={expandedConjugations[`${index}-pastParticiple`]} />
                                   </span>
                                 </button>
                                 {expandedConjugations[`${index}-pastParticiple`] && (
@@ -701,7 +713,7 @@ const LessonDetail = () => {
                                 >
                                   <span className="conjugation-label">Future:</span>
                                   <span className="dropdown-arrow">
-                                    {expandedConjugations[`${index}-future`] ? '▼' : '▶'}
+                                    <DropdownChevron expanded={expandedConjugations[`${index}-future`]} />
                                   </span>
                                 </button>
                                 {expandedConjugations[`${index}-future`] && (
@@ -777,13 +789,20 @@ const LessonDetail = () => {
                     {showAnswer && (
                       <div className="quiz-feedback">
                         {selectedAnswer === activeQuizQuestion.correctAnswer ? (
-                          <p className="feedback-correct">✓ Correct! Well done!</p>
+                          <p className="feedback-correct">
+                            <Check size={18} aria-hidden />
+                            Correct! Well done!
+                          </p>
                         ) : (
-                          <p className="feedback-incorrect">✗ Incorrect. The correct answer is: <strong>{activeQuizQuestion.correctAnswer}</strong></p>
+                          <p className="feedback-incorrect">
+                            <X size={18} aria-hidden />
+                            Incorrect. The correct answer is: <strong>{activeQuizQuestion.correctAnswer}</strong>
+                          </p>
                         )}
                         {currentQuestion < quizQuestions.length - 1 && (
                           <button className="quiz-next-button" onClick={nextQuestion}>
-                            Next Question →
+                            Next Question
+                            <ArrowRight size={16} aria-hidden />
                           </button>
                         )}
                       </div>
@@ -791,6 +810,7 @@ const LessonDetail = () => {
                     {incorrectAnswers.length > 0 && (
                       <details className="quiz-review-dropdown">
                         <summary className="quiz-review-summary">
+                          <ChevronRight className="quiz-review-chevron" size={14} aria-hidden />
                           Review mistakes ({incorrectAnswers.length})
                         </summary>
                         <ul className="quiz-review-list">
@@ -911,14 +931,16 @@ const LessonDetail = () => {
                 onClick={prevPart}
                 disabled={currentPart === 0}
               >
-                ← Previous
+                <ChevronLeft size={18} aria-hidden />
+                Previous
               </button>
               <button 
                 className="nav-button next" 
                 onClick={nextPart}
                 disabled={currentPart === parts.length - 1}
               >
-                Next →
+                Next
+                <ChevronRight size={18} aria-hidden />
               </button>
             </div>
           ) : (
@@ -928,14 +950,16 @@ const LessonDetail = () => {
                 onClick={prevSection}
                 disabled={currentSection === 0}
               >
-                ← Previous
+                <ChevronLeft size={18} aria-hidden />
+                Previous
               </button>
               <button 
                 className="nav-button next" 
                 onClick={nextSection}
                 disabled={currentSection === sections.length - 1}
               >
-                Next →
+                Next
+                <ChevronRight size={18} aria-hidden />
               </button>
             </div>
           )}

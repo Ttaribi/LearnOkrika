@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { Globe } from 'lucide-react'
 import './Header.css'
 
 const Header = () => {
@@ -53,7 +54,8 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="nav">
         <div className="logo" onClick={handleLogoClick}>
-          🌍 Learn Okrika
+          <Globe size={22} strokeWidth={2} aria-hidden />
+          <span>Learn Okrika</span>
         </div>
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
           {location.pathname === '/' ? (

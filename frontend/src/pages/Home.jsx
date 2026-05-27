@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ArrowRight, Globe } from 'lucide-react'
 import './Home.css'
 
 const UPDATES_AS_OF = 'May 25, 2026'
@@ -52,7 +53,7 @@ function Home() {
             </button>
           </div>
           <div className="welcome-graphic">
-            <span className="welcome-emoji">🌍</span>
+            <Globe className="welcome-globe-icon" size={72} strokeWidth={1.5} aria-hidden />
           </div>
         </div>
       </div>
@@ -74,7 +75,10 @@ function Home() {
                 <h3 className="update-title">{update.title}</h3>
                 <p className="update-description">{update.description}</p>
                 {update.lessonId != null && (
-                  <span className="update-link">View lesson →</span>
+                  <span className="update-link">
+                    View lesson
+                    <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
+                  </span>
                 )}
               </button>
             </li>
@@ -84,7 +88,7 @@ function Home() {
 
       <div className="section">
         <div className="about-card">
-          <div className="about-card-icon">🌍</div>
+          <Globe className="about-card-icon" size={40} strokeWidth={1.75} aria-hidden />
           <div className="about-card-content">
             <h2>About the Okrika Language</h2>
             <p>

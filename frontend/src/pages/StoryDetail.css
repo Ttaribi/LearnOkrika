@@ -27,7 +27,9 @@
   font-size: 0.9rem;
   margin-bottom: 1.25rem;
   transition: all 0.2s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .back-button:hover {
@@ -69,6 +71,9 @@
 }
 
 .story-reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
   font-style: italic;
@@ -98,6 +103,15 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.story-instruction-icon {
+  flex-shrink: 0;
+  color: #E5A100;
+  margin-top: 0.1rem;
 }
 
 /* Paragraph Format */

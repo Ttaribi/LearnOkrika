@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { BookOpen, ChevronLeft, Eye, EyeOff, Lightbulb } from 'lucide-react'
 import './StoryDetail.css'
 import { supabase } from '../lib/supabaseClient'
 
@@ -402,19 +403,26 @@ const StoryDetail = () => {
         <div className="story-detail-container">
           <div className="story-header">
             <button className="back-button" onClick={() => navigate('/stories')}>
-              ← Back to Stories
+              <ChevronLeft size={18} aria-hidden />
+              Back to Stories
             </button>
             <div className="story-title-section">
               <span className="story-badge">{story.level}</span>
               <h1>{story.title}</h1>
               <p className="story-description">{story.description}</p>
-              <p className="story-reading-time">📖 Reading time: {story.readingTime}</p>
+              <p className="story-reading-time">
+                <BookOpen size={16} aria-hidden />
+                Reading time: {story.readingTime}
+              </p>
             </div>
           </div>
 
           <div className="story-content">
             <div className="story-instruction">
-              <p>💡 Click on any Okrika word or phrase to see its English translation. Click the eye icon next to each sentence to see the full translation.</p>
+              <p>
+                <Lightbulb size={18} className="story-instruction-icon" aria-hidden />
+                Click on any Okrika word or phrase to see its English translation. Click the eye icon next to each sentence to see the full translation.
+              </p>
             </div>
             {story.content?.type === 'dialogue' ? (
               <div className="story-dialogue">
@@ -439,7 +447,11 @@ const StoryDetail = () => {
                                 }}
                                 title={showFullTranslations[`exchange-${index}`] ? 'Hide translation' : 'Show translation'}
                               >
-                                {showFullTranslations[`exchange-${index}`] ? '👁️' : '👁️‍🗨️'}
+                                {showFullTranslations[`exchange-${index}`] ? (
+                                  <EyeOff size={18} aria-hidden />
+                                ) : (
+                                  <Eye size={18} aria-hidden />
+                                )}
                               </button>
                             )}
                           </div>
@@ -475,7 +487,11 @@ const StoryDetail = () => {
                           }}
                           title={showFullTranslations[`paragraph-${index}`] ? 'Hide translation' : 'Show translation'}
                         >
-                          {showFullTranslations[`paragraph-${index}`] ? '👁️' : '👁️‍🗨️'}
+                          {showFullTranslations[`paragraph-${index}`] ? (
+                            <EyeOff size={18} aria-hidden />
+                          ) : (
+                            <Eye size={18} aria-hidden />
+                          )}
                         </button>
                       )}
                     </div>

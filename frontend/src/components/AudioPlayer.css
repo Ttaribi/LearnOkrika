@@ -53,29 +53,13 @@
   }
 }
 
-.audio-icon {
+.audio-lucide-icon {
   color: #fff;
-  font-size: 10px;
-  line-height: 1;
-  display: inline-block;
+  display: block;
 }
 
-.audio-icon.play {
-  margin-left: 1px;
-}
-
-.audio-icon.pause {
-  font-size: 9px;
-}
-
-.audio-icon.loading {
+.audio-lucide-icon.spinning {
   animation: spin 1s linear infinite;
-  font-size: 11px;
-}
-
-.audio-icon.error {
-  font-size: 11px;
-  color: #ffffff;
 }
 
 @keyframes spin {
@@ -99,11 +83,4 @@
     height: 26px;
   }
 
-  .audio-icon {
-    font-size: 9px;
-  }
-
-  .audio-icon.play {
-    margin-left: 0.5px;
-  }
 }

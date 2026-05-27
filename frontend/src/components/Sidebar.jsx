@@ -1,28 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { BookOpen, Globe, Home, Info, MessagesSquare } from 'lucide-react'
 import './Sidebar.css'
+
+const ICON_SIZE = 20
+const ICON_STROKE = 2
+
+const navItems = [
+  { path: '/', label: 'Home', Icon: Home },
+  { path: '/lessons', label: 'Learn', Icon: BookOpen },
+  { path: '/stories', label: 'Stories', Icon: MessagesSquare },
+]
 
 const Sidebar = () => {
   const location = useLocation()
-
-  const navItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/lessons', label: 'Learn', icon: '📚' },
-    { path: '/stories', label: 'Stories', icon: '💬' },
-  ]
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/'
     return location.pathname.startsWith(path)
   }
 
+  const renderIcon = (Icon) => (
+    <Icon className="sidebar-lucide-icon" size={ICON_SIZE} strokeWidth={ICON_STROKE} aria-hidden />
+  )
+
   return (
     <>
-      {/* Desktop Sidebar */}
       <nav className="sidebar" aria-label="Main navigation">
         <div className="sidebar-top">
           <div className="sidebar-logo">
-            <span className="logo-icon">🌍</span>
+            <Globe className="logo-lucide-icon" size={24} strokeWidth={ICON_STROKE} aria-hidden />
             <span className="logo-text">Learn Okrika</span>
           </div>
           <ul className="sidebar-nav">
@@ -33,7 +40,7 @@ const Sidebar = () => {
                   className={`sidebar-link ${isActive(item.path) ? 'active' : ''}`}
                   end={item.path === '/'}
                 >
-                  <span className="sidebar-icon">{item.icon}</span>
+                  <span className="sidebar-icon">{renderIcon(item.Icon)}</span>
                   <span className="sidebar-label">{item.label}</span>
                 </NavLink>
               </li>
@@ -45,13 +52,12 @@ const Sidebar = () => {
             to="/about"
             className={`sidebar-link ${isActive('/about') ? 'active' : ''}`}
           >
-            <span className="sidebar-icon">ℹ️</span>
+            <span className="sidebar-icon">{renderIcon(Info)}</span>
             <span className="sidebar-label">About Okrika</span>
           </NavLink>
         </div>
       </nav>
 
-      {/* Mobile Bottom Tab Bar */}
       <nav className="mobile-tab-bar" aria-label="Mobile navigation">
         {navItems.map((item) => (
           <NavLink
@@ -60,7 +66,7 @@ const Sidebar = () => {
             className={`tab-item ${isActive(item.path) ? 'active' : ''}`}
             end={item.path === '/'}
           >
-            <span className="tab-icon">{item.icon}</span>
+            <span className="tab-icon">{renderIcon(item.Icon)}</span>
             <span className="tab-label">{item.label}</span>
           </NavLink>
         ))}

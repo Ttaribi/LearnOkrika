@@ -1,4 +1,5 @@
 import React from 'react'
+import { Globe } from 'lucide-react'
 import './Footer.css'
 
 const Footer = () => {
@@ -7,7 +8,10 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>🌍 Learn Okrika</h3>
+            <h3 className="footer-brand">
+              <Globe size={22} strokeWidth={2} aria-hidden />
+              Learn Okrika
+            </h3>
             <p>Preserving the language of Rivers State, Nigeria</p>
           </div>
           <div className="footer-section">

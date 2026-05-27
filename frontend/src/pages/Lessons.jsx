@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import './Lessons.css'
 
 const stepColors = ['#6C63FF', '#1DB89A', '#E5A100', '#E8567F', '#3B82F6', '#A855F7']
@@ -152,7 +153,8 @@ const Lessons = () => {
                   <h3>{lesson.title}</h3>
                   <p>{lesson.description}</p>
                   <button className="path-btn">
-                    {index === 0 ? 'Start Here →' : 'Begin Lesson →'}
+                    {index === 0 ? 'Start Here' : 'Begin Lesson'}
+                    <ArrowRight size={16} aria-hidden />
                   </button>
                 </div>
               </div>

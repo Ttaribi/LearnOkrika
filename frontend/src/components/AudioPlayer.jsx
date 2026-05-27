@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { AlertCircle, Loader2, Pause, Play } from 'lucide-react'
 import './AudioPlayer.css'
 
 const AudioPlayer = ({ audioUrl, label = 'Play pronunciation' }) => {
@@ -87,13 +88,13 @@ const AudioPlayer = ({ audioUrl, label = 'Play pronunciation' }) => {
         title={label}
       >
         {isLoading ? (
-          <span className="audio-icon loading">⟳</span>
+          <Loader2 className="audio-lucide-icon spinning" size={14} aria-hidden />
         ) : hasError ? (
-          <span className="audio-icon error">⚠</span>
+          <AlertCircle className="audio-lucide-icon" size={14} aria-hidden />
         ) : isPlaying ? (
-          <span className="audio-icon pause">⏸</span>
+          <Pause className="audio-lucide-icon" size={14} aria-hidden />
         ) : (
-          <span className="audio-icon play">▶</span>
+          <Play className="audio-lucide-icon" size={14} aria-hidden />
         )}
       </button>
       {hasError && (
@@ -104,4 +105,3 @@ const AudioPlayer = ({ audioUrl, label = 'Play pronunciation' }) => {
 }
 
 export default AudioPlayer
-

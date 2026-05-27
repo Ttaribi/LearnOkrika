@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import './Stories.css'
 
 const cardColors = ['#E8567F', '#6C63FF', '#1DB89A', '#3B82F6', '#E5A100', '#A855F7']
@@ -81,7 +82,8 @@ const Stories = () => {
                 <h3>{story.title}</h3>
                 <p>{story.description}</p>
                 <button className="story-button" style={{ borderColor: accent, color: accent }}>
-                  Read Story →
+                  Read Story
+                  <ArrowRight size={16} aria-hidden />
                 </button>
               </div>
             )
